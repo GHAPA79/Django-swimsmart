@@ -10,7 +10,7 @@
 <body>
     <h1>Home page</h1>
     {% if user.is_authenticated %}
-        <p>hi {{ user.user_name }}</p> | <a href="{% url 'account_logout' %}">< Log out ></a>
+        <p>hi {{ user.username }}</p> | <a href="{% url 'account_logout' %}">< Log out ></a>
     {% else %}
         <a href="{% url 'account_login' %}">< Login ></a> | <a href="{% url 'account_signup' %}">< Sign up ></a>
     {% endif %}
