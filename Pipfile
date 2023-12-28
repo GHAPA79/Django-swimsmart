@@ -10,6 +10,7 @@ django-crispy-forms = "*"
 crispy-bootstrap5 = "*"
 pillow = "*"
 mysqlclient = "*"
+django-debug-toolbar = "*"
 
 [dev-packages]
 
