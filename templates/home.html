@@ -11,72 +11,81 @@
 </head>
 <body>
 {% block content %}
-    <nav class="main-nav-one stricky main-nav-two">
-        <div class="container">
-            <div class="inner-container">
-                <div class="logo-box">
-                    <a href="index.html">
-                        <img src="{% static 'assets/images/logo-3-1.png' %}" alt="" width="119">
-                    </a>
-                    <a href="#" class="side-menu__toggler"><i class="fa fa-bars"></i></a>
-                </div><!-- /.logo-box -->
-                <div class="main-nav__main-navigation">
-                    <ul class="main-nav__navigation-box">
-                        <li class="dropdown">
-                            <a href="index.html">Home</a>
-                            <ul>
-                                <li><a href="index.html">Home 01</a></li>
-                                <li><a href="index-2.html">Home 02</a></li>
-                                <li><a href="index-rtl.html">Home RTL</a></li>
-                                <li class="dropdown">
-                                    <a href="#">Header Styles</a>
-                                    <ul>
-                                        <li><a href="index.html">Header 01</a></li>
-                                        <li><a href="index-2.html">Header 02</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-                        <li><a href="about.html">About</a></li>
-                        <li class="dropdown">
-                            <a href="courses.html">Courses</a>
-                            <ul>
-                                <li><a href="courses.html">Courses</a></li>
-                                <li><a href="course-details.html">Course Details</a></li>
-                            </ul>
-                        </li>
-                        <li class="dropdown">
-                            <a href="#">Pages</a>
-                            <ul>
-                                <li><a href="pricing.html">Pricing</a></li>
-                                <li><a href="gallery.html">Gallery</a></li>
-                            </ul>
-                        </li>
-                        <li class="dropdown">
-                            <a href="news.html">Latest News</a>
-                            <ul>
-                                <li><a href="news.html">News Page</a></li>
-                                <li><a href="news-details.html">News Details</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul><!-- /.main-nav__navigation-box -->
-                </div><!-- /.main-nav__main-navigation -->
-            </div><!-- /.inner-container -->
-        </div><!-- /.container -->
-    </nav><!-- /.main-nav-one -->
 
     <section class="testimonials-one__title testimonials-one__title__home-two">
-        <div class="testimonials-one__bg" style="background-image: url({% static 'assets/images/shapes/water-wave-bg.png' %});"></div>
+        <div class="testimonials-one__bg"
+             style="background-image: url({% static 'assets/images/shapes/water-wave-bg.png' %});"></div>
         <!-- /.testimonials-one__bg -->
         <div class="container">
             <div class="block-title text-center">
-            <img src="{% static 'assets/images/shapes/sec-line-1.png' %}" alt="">
+                <img src="{% static 'assets/images/shapes/sec-line-1.png' %}" alt="">
                 <p class="text-uppercase">آب دنیای ماست</p>
                 <h3 class="text-uppercase">لیست متدهای شنا</h3>
+                <br><br><br>
+                <div class="site-footer__bottom">
+                    <div class="container">
+                        <div class="row">
+                            <div class="block-title text-center">
+                                <a href="contact.html"><i class="fa fa-map"></i>راهنما و توضیحات متد های شنا</a>
+                            </div><!-- /.col-lg-4 -->
+                        </div><!-- /.row -->
+                    </div><!-- /.container -->
+                </div><!-- /.site-footer__bottom -->
             </div><!-- /.block-title -->
         </div><!-- /.container -->
     </section><!-- /.testimonials-one__title -->
+
+    <section class="course-one">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="course-one__single">
+                        <div class="course-one__image">
+                            <a href="">
+                                <div class="course-one__image-inner">
+                                    <img src="{% static 'assets/images/courses/us-flag.jpg' %}" alt="">
+                                </div><!-- /.course-one__image-inner --></a>
+                        </div><!-- /.course-one__image -->
+                        <div class="course-one__content hvr-sweep-to-bottom">
+                            <h3><a href="course-details.html">متد شنای کشور آمریکا</a></h3>
+                            <p>There are many variatin of passages of lorem ipsum available, but the majority have.</p>
+                        </div><!-- /.course-one__content -->
+                        <a href="contact.html" class="course-one__book-link">Book this course</a>
+                    </div><!-- /.course-one__single -->
+                </div><!-- /.col-lg-4 col-md-6 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="course-one__single">
+                        <div class="course-one__image">
+                            <a href="">
+                                <div class="course-one__image-inner">
+                                    <img src="{% static 'assets/images/courses/uk-flag.jpg' %}" alt="">
+                                </div><!-- /.course-one__image-inner --></a>
+                        </div><!-- /.course-one__image -->
+                        <div class="course-one__content hvr-sweep-to-bottom">
+                            <h3><a href="course-details.html">متد شنای کشور انگلیس</a></h3>
+                            <p>There are many variatin of passages of lorem ipsum available, but the majority have.</p>
+                        </div><!-- /.course-one__content -->
+                        <a href="contact.html" class="course-one__book-link">Book this course</a>
+                    </div><!-- /.course-one__single -->
+                </div><!-- /.col-lg-4 col-md-6 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="course-one__single">
+                        <div class="course-one__image">
+                            <a href="">
+                                <div class="course-one__image-inner">
+                                    <img src="{% static 'assets/images/courses/ch-flag.jpg' %}" alt="">
+                                </div><!-- /.course-one__image-inner --></a>
+                        </div><!-- /.course-one__image -->
+                        <div class="course-one__content hvr-sweep-to-bottom">
+                            <h3><a href="course-details.html">متد شنای کشور چین</a></h3>
+                            <p>There are many variatin of passages of lorem ipsum available, but the majority have.</p>
+                        </div><!-- /.course-one__content -->
+                        <a href="contact.html" class="course-one__book-link">Book this course</a>
+                    </div><!-- /.course-one__single -->
+                </div><!-- /.col-lg-4 col-md-6 -->
+            </div><!-- /.row -->
+        </div><!-- /.container -->
+    </section><!-- /.course-one -->
 {% endblock content %}
 </body>
 </html>
