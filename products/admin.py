@@ -3,20 +3,9 @@ from django.contrib import admin
 from . import models
 
 
-@admin.register(models.MethodCategory)
+@admin.register(models.Category)
 class MethodCategoryAdmin(admin.ModelAdmin):
-    list_display = ['title']
-
-
-@admin.register(models.TypeSwimCategory)
-class TypeSwimCategoryAdmin(admin.ModelAdmin):
-    list_display = ['title', 'method_category']
-
-
-@admin.register(models.SeasonCategory)
-class SeasonCategoryAdmin(admin.ModelAdmin):
-    list_display = ['title', 'method_category', 'type_swim_category']
-    list_per_page = 16
+    list_display = ['method_name', 'type_swimmer']
 
 
 @admin.register(models.Product)

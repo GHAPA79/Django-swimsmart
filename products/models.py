@@ -2,34 +2,31 @@ from django.db import models
 from django.conf import settings
 
 
-class MethodCategory(models.Model):
-    title = models.CharField(max_length=255)
-    description = models.CharField(max_length=255, blank=True)
+class Category(models.Model):
+    METHOD_NAMES = [
+        ('US', 'UNITED STATE OF AMERICA'),
+        ('UK', 'UNITED KINGDOM'),
+        ('AUS', 'AUSTRALIA'),
+        ('CHN', 'CHINA'),
+    ]
+
+    TYPE_SWIMMERS = [
+        ('F', 'FAST'),
+        ('SE', 'SEMI-ENDURANCE'),
+        ('E', 'ENDURANCE'),
+    ]
+
+    method_name = models.CharField(max_length=255, choices=METHOD_NAMES)
+    type_swimmer = models.CharField(max_length=255, choices=TYPE_SWIMMERS)
+    description = models.TextField(blank=True)
 
     def __str__(self):
-        return f'{self.title}'
-
-
-class TypeSwimCategory(models.Model):
-    title = models.CharField(max_length=255)
-    method_category = models.ForeignKey(MethodCategory, on_delete=models.PROTECT, related_name='type_swimmers')
-
-    def __str__(self):
-        return f'{self.title}'
-
-
-class SeasonCategory(models.Model):
-    title = models.CharField(max_length=255)
-    method_category = models.ForeignKey(MethodCategory, on_delete=models.PROTECT, related_name='seasons')
-    type_swim_category = models.ForeignKey(TypeSwimCategory, on_delete=models.PROTECT, related_name='seasons')
-
-    def __str__(self):
-        return f'{self.title}'
+        return f'Method: {self.method_name} | Type_swimmer: {self.TYPE_SWIMMERS}'
 
 
 class Product(models.Model):
     title = models.CharField(max_length=255)
-    season_category = models.ForeignKey(SeasonCategory, on_delete=models.PROTECT, related_name='products')
+    category = models.ForeignKey(Category, on_delete=models.PROTECT, related_name='products')
     description = models.TextField(blank=True)
     price = models.PositiveIntegerField(default=0)
     duration = models.DurationField(default=0)
