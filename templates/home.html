@@ -21,18 +21,18 @@
                 <img src="{% static 'assets/images/shapes/sec-line-1.png' %}" alt="">
                 <p class="text-uppercase">آب دنیای ماست</p>
                 <h3 class="text-uppercase">لیست متدهای شنا</h3>
-                <br><br><br>
+                <br><br><br><br>
                 <div class="site-footer__bottom">
                     <div class="container">
                         <div class="row">
-                            <div class="block-title text-center">
-                                <a href="contact.html"><i class="fa fa-map"></i>راهنما و توضیحات متد های شنا</a>
+                            <div class="col-lg-12">
+                                <a href="mailto:needhelp@example.com"><i class="fa fa-envelope"></i>نوضیحات و درباره متد های شنا</a>
                             </div><!-- /.col-lg-4 -->
                         </div><!-- /.row -->
                     </div><!-- /.container -->
                 </div><!-- /.site-footer__bottom -->
-            </div><!-- /.block-title -->
-        </div><!-- /.container -->
+            </div>
+        </div>
     </section><!-- /.testimonials-one__title -->
 
     <section class="course-one">
@@ -41,63 +41,63 @@
                 <div class="col-lg-5 col-md-6">
                     <div class="course-one__single">
                         <div class="course-one__image">
-                            <a href="">
+                            <a href="{% url 'usa-method' %}">
                                 <div class="course-one__image-inner">
                                     <img src="{% static 'assets/images/courses/us-flag.jpg' %}" alt="">
                                 </div><!-- /.course-one__image-inner --></a>
                         </div><!-- /.course-one__image -->
                         <div class="course-one__content hvr-sweep-to-bottom">
-                            <h3><a href="course-details.html">متد شنای کشور آمریکا</a></h3>
+                            <h3><a href="{% url 'usa-method' %}">متد شنای کشور آمریکا</a></h3>
                             <p>There are many variatin of passages of lorem ipsum available, but the majority have.</p>
                         </div><!-- /.course-one__content -->
-                        <a href="contact.html" class="course-one__book-link">Book this course</a>
+                        <a href="{% url 'usa-method' %}" class="course-one__book-link">Book this course</a>
                     </div><!-- /.course-one__single -->
                 </div><!-- /.col-lg-4 col-md-6 -->
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <div class="col-lg-5 col-md-6">
                     <div class="course-one__single">
                         <div class="course-one__image">
-                            <a href="">
+                            <a href="{% url 'aus-method' %}">
                                 <div class="course-one__image-inner">
                                     <img src="{% static 'assets/images/courses/as-flag.jpg' %}" alt="">
                                 </div><!-- /.course-one__image-inner --></a>
                         </div><!-- /.course-one__image -->
                         <div class="course-one__content hvr-sweep-to-bottom">
-                            <h3><a href="course-details.html">متد شنای کشور استرالیا</a></h3>
+                            <h3><a href="{% url 'aus-method' %}">متد شنای کشور استرالیا</a></h3>
                             <p>There are many variatin of passages of lorem ipsum available, but the majority have.</p>
                         </div><!-- /.course-one__content -->
-                        <a href="contact.html" class="course-one__book-link">Book this course</a>
+                        <a href="{% url 'aus-method' %}" class="course-one__book-link">Book this course</a>
                     </div><!-- /.course-one__single -->
                 </div><!-- /.col-lg-4 col-md-6 -->
                 <div class="col-lg-5 col-md-6">
                     <div class="course-one__single">
                         <div class="course-one__image">
-                            <a href="">
+                            <a href="{% url 'uk-method' %}">
                                 <div class="course-one__image-inner">
                                     <img src="{% static 'assets/images/courses/uk-flag.jpg' %}" alt="">
                                 </div><!-- /.course-one__image-inner --></a>
                         </div><!-- /.course-one__image -->
                         <div class="course-one__content hvr-sweep-to-bottom">
-                            <h3><a href="course-details.html">متد شنای کشور انگلیس</a></h3>
+                            <h3><a href="{% url 'uk-method' %}">متد شنای کشور انگلیس</a></h3>
                             <p>There are many variatin of passages of lorem ipsum available, but the majority have.</p>
                         </div><!-- /.course-one__content -->
-                        <a href="contact.html" class="course-one__book-link">Book this course</a>
+                        <a href="{% url 'uk-method' %}" class="course-one__book-link">Book this course</a>
                     </div><!-- /.course-one__single -->
                 </div><!-- /.col-lg-4 col-md-6 -->
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <div class="col-lg-5 col-md-6">
                     <div class="course-one__single">
                         <div class="course-one__image">
-                            <a href="">
+                            <a href="{% url 'chn-method' %}">
                                 <div class="course-one__image-inner">
                                     <img src="{% static 'assets/images/courses/ch-flag.jpg' %}" alt="">
                                 </div><!-- /.course-one__image-inner --></a>
                         </div><!-- /.course-one__image -->
                         <div class="course-one__content hvr-sweep-to-bottom">
-                            <h3><a href="course-details.html">متد شنای کشور چین</a></h3>
+                            <h3><a href="{% url 'chn-method' %}">متد شنای کشور چین</a></h3>
                             <p>There are many variatin of passages of lorem ipsum available, but the majority have.</p>
                         </div><!-- /.course-one__content -->
-                        <a href="contact.html" class="course-one__book-link">Book this course</a>
+                        <a href="{% url 'chn-method' %}" class="course-one__book-link">Book this course</a>
                     </div><!-- /.course-one__single -->
                 </div><!-- /.col-lg-4 col-md-6 -->
             </div><!-- /.row -->

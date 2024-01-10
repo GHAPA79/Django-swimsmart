@@ -1,0 +1,70 @@
+{% extends '_base.html' %}
+{% load static %}
+
+{% block page_title %}نوع تمرین{% endblock page_title %}
+
+{% block content %}
+    <section class="page-header">
+        <div class="page-header__bg"
+             style="background-image: url({% static 'assets/images/background/footer-bg-1-1.jpg' %});"></div>
+        <!-- /.page-header__bg -->
+        <div class="container">
+            <h2 class="page-header__title">Types of exercise - AUSTRALIA method</h2><!-- /.page-header__title -->
+        </div><!-- /.container -->
+    </section><!-- /.page-header -->
+
+    <section class="course-one">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="course-one__single">
+                        <div class="course-one__image">
+                            <a href="">
+                                <div class="course-one__image-inner">
+                                    <img src="{% static 'assets/images/courses/swim6.jpg' %}" alt="">
+                                </div><!-- /.course-one__image-inner -->
+                            </a>
+                        </div><!-- /.course-one__image -->
+                        <div class="course-one__content hvr-sweep-to-bottom">
+                            <h3><a href="course-details.html">تمرینات سرعتی</a></h3>
+                            <p>There are many variatin of passages of lorem ipsum available, but the majority have.</p>
+                        </div><!-- /.course-one__content -->
+                        <a href="contact.html" class="course-one__book-link">Book this course</a>
+                    </div><!-- /.course-one__single -->
+                </div><!-- /.col-lg-4 col-md-6 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="course-one__single">
+                        <div class="course-one__image">
+                            <a href="">
+                                <div class="course-one__image-inner">
+                                    <img src="{% static 'assets/images/courses/swim4.jpg' %}" alt="">
+                                </div><!-- /.course-one__image-inner -->
+                            </a>
+                        </div><!-- /.course-one__image -->
+                        <div class="course-one__content hvr-sweep-to-bottom">
+                            <h3><a href="course-details.html">تمرینات نیمه استقامتی</a></h3>
+                            <p>There are many variatin of passages of lorem ipsum available, but the majority have.</p>
+                        </div><!-- /.course-one__content -->
+                        <a href="contact.html" class="course-one__book-link">Book this course</a>
+                    </div><!-- /.course-one__single -->
+                </div><!-- /.col-lg-4 col-md-6 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="course-one__single">
+                        <div class="course-one__image">
+                            <a href="">
+                                <div class="course-one__image-inner">
+                                    <img src="{% static 'assets/images/courses/swim5.jpg' %}" alt="">
+                                </div><!-- /.course-one__image-inner -->
+                            </a>
+                        </div><!-- /.course-one__image -->
+                        <div class="course-one__content hvr-sweep-to-bottom">
+                            <h3><a href="course-details.html">تمرینات استقامتی</a></h3>
+                            <p>There are many variatin of passages of lorem ipsum available, but the majority have.</p>
+                        </div><!-- /.course-one__content -->
+                        <a href="contact.html" class="course-one__book-link">Book this course</a>
+                    </div><!-- /.course-one__single -->
+                </div><!-- /.col-lg-4 col-md-6 -->
+            </div><!-- /.row -->
+        </div><!-- /.container -->
+    </section><!-- /.course-one -->
+{% endblock %}
