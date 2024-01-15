@@ -2,9 +2,9 @@
     <div class="container">
         <div class="topbar-one__left">
             {% if user.is_authenticated %}
-                <h4 style="color:#000000">Welcome {{ user.username }}</h4>&nbsp;&nbsp;<a href="#">Profile</a><a href="{% url 'logout' %}">Log out</a>
+                <h4 style="color:#000000">Welcome {{ user.username }}</h4>&nbsp;&nbsp;<a href="{% url 'account:profile' %}">Profile</a><a href="{% url 'logout' %}">Log out</a>
             {% else %}
-                <a href="{% url 'login' %}">Login</a><a href="{% url 'signup' %}">Register</a>
+                <a href="{% url 'login' %}">Login</a><a href="{% url 'account:signup' %}">Register</a>
             {% endif %}
         </div><!-- /.topbar-one__left -->
         <div class="topbar-one__social">

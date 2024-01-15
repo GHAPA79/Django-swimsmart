@@ -1,0 +1,65 @@
+{% extends '_base.html' %}
+{% load crispy_forms_filters %}
+
+{% load static %}
+
+{% block page_title %}
+    پروفایل کاربری
+{% endblock %}
+
+{% block content %}
+    <section class="page-header">
+        <div class="page-header__bg"
+             style="background-image: url({% static 'assets/images/background/footer-bg-1-1.jpg' %});"></div>
+        <!-- /.page-header__bg -->
+        <div class="container">
+            <h2 class="page-header__title">Profile - Hi {{ user.username }}</h2><!-- /.page-header__title -->
+        </div><!-- /.container -->
+    </section><!-- /.page-header -->
+
+    <section class="contact-one">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-4">
+                    <div class="contact-one__content">
+                        <h3>Get in Touch <br> With Us</h3>
+                        <p>Aliq is notm hendr erit a augue insu image pellen tes que id erat quis sollicitud. Lorem
+                            ipsum is
+                            simply free text dolor sit amet, consectetur adipiscing ullam blandit hendrerit faucibus
+                            suspendisse.</p>
+                        <div class="footer-widget__social contact-one__social">
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-facebook-square"></i></a>
+                            <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div><!-- /.contact-one__social -->
+                    </div><!-- /.contact-one__content -->
+                </div><!-- /.col-xl-4 -->
+                <div class="col-xl-8">
+                    <form action="assets/inc/sendemail.php" method="post"
+                          class="contact-one__form contact-form-validated">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-md-6">
+                                {{ form.username }}
+                            </div><!-- /.col-md-6 -->
+                            <div class="col-md-6">
+                                {{ form.first_name }}
+                            </div><!-- /.col-md-6 -->
+                            <div class="col-md-6">
+                                {{ form.last_name }}
+                            </div><!-- /.col-md-6 -->
+                            <div class="col-md-6">
+                                {{ form.phone_number }}
+                            </div><!-- /.col-md-6 -->
+                            <div class="col-md-6">
+                                {{ form.email }}
+                            </div><!-- /.col-md-12 -->
+                        </div><!-- /.row -->
+                    </form><!-- /.contact-one__form -->
+                    <div class="result"></div><!-- /.result -->
+                </div><!-- /.col-xl-8 -->
+            </div><!-- /.row -->
+        </div><!-- /.container -->
+    </section><!-- /.contact-one -->
+{% endblock %}
