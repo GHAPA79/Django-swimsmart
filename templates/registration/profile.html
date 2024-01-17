@@ -20,45 +20,12 @@
     <section class="contact-one">
         <div class="container">
             <div class="row">
-                <div class="col-xl-4">
-                    <div class="contact-one__content">
-                        <h3>Get in Touch <br> With Us</h3>
-                        <p>Aliq is notm hendr erit a augue insu image pellen tes que id erat quis sollicitud. Lorem
-                            ipsum is
-                            simply free text dolor sit amet, consectetur adipiscing ullam blandit hendrerit faucibus
-                            suspendisse.</p>
-                        <div class="footer-widget__social contact-one__social">
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                            <a href="#"><i class="fab fa-facebook-square"></i></a>
-                            <a href="#"><i class="fab fa-pinterest-p"></i></a>
-                            <a href="#"><i class="fab fa-instagram"></i></a>
-                        </div><!-- /.contact-one__social -->
-                    </div><!-- /.contact-one__content -->
-                </div><!-- /.col-xl-4 -->
-                <div class="col-xl-8">
-                    <form action="assets/inc/sendemail.php" method="post"
-                          class="contact-one__form contact-form-validated">
-                        {% csrf_token %}
-                        <div class="row">
-                            <div class="col-md-6">
-                                {{ form.username }}
-                            </div><!-- /.col-md-6 -->
-                            <div class="col-md-6">
-                                {{ form.first_name }}
-                            </div><!-- /.col-md-6 -->
-                            <div class="col-md-6">
-                                {{ form.last_name }}
-                            </div><!-- /.col-md-6 -->
-                            <div class="col-md-6">
-                                {{ form.phone_number }}
-                            </div><!-- /.col-md-6 -->
-                            <div class="col-md-6">
-                                {{ form.email }}
-                            </div><!-- /.col-md-12 -->
-                        </div><!-- /.row -->
-                    </form><!-- /.contact-one__form -->
-                    <div class="result"></div><!-- /.result -->
-                </div><!-- /.col-xl-8 -->
+                <form action="" method="post">
+                    {% csrf_token %}
+                    {{ form|crispy }}
+                    <input class="btn btn-success" type="submit" value="ویرایش اطلاعات کاربری">
+                    <a href="{% url 'account:profile' %}"><input class="btn btn-danger" type="submit" value=" لغو ویرایش"></a>
+                </form>
             </div><!-- /.row -->
         </div><!-- /.container -->
     </section><!-- /.contact-one -->

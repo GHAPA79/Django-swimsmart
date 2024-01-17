@@ -1,0 +1,70 @@
+{% extends '_base.html' %}
+{% load static %}
+
+{% block page_title %}
+    تماس با ما
+{% endblock %}
+
+{% block content %}
+    <section class="page-header">
+    <div class="page-header__bg" style="background-image: url({% static 'assets/images/background/footer-bg-1-1.jpg' %});"></div>
+        <!-- /.page-header__bg -->
+        <div class="container">
+            <h2 class="page-header__title">contact us</h2><!-- /.page-header__title -->
+        </div><!-- /.container -->
+    </section><!-- /.page-header -->
+
+    <section class="contact-one">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-4">
+                    <div class="contact-one__content">
+                        <h3>Get in Touch <br> With Us</h3>
+                        <p>Aliq is notm hendr erit a augue insu image pellen tes que id erat quis sollicitud. Lorem
+                            ipsum is
+                            simply free text dolor sit amet, consectetur adipiscing ullam blandit hendrerit faucibus
+                            suspendisse.</p>
+                        <div class="footer-widget__social contact-one__social">
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-facebook-square"></i></a>
+                            <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div><!-- /.contact-one__social -->
+                    </div><!-- /.contact-one__content -->
+                </div><!-- /.col-xl-4 -->
+                <div class="col-xl-8">
+                    <form action="assets/inc/sendemail.php" class="contact-one__form contact-form-validated">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <input type="text" placeholder="Full Name" name="name">
+                            </div><!-- /.col-md-6 -->
+                            <div class="col-md-6">
+                                <input type="text" placeholder="Email Address" name="email">
+                            </div><!-- /.col-md-6 -->
+                            <div class="col-md-6">
+                                <input type="text" placeholder="Phone number" name="phone">
+                            </div><!-- /.col-md-6 -->
+                            <div class="col-md-6">
+                                <select class="selectpicker" name="service">
+                                    <option value="">Discussion For</option>
+                                    <option value="About Course">Query For Courses</option>
+                                    <option value="About Pricing">Query For Pricing</option>
+                                </select>
+                            </div><!-- /.col-md-6 -->
+                            <div class="col-md-12">
+                                <input type="text" placeholder="Subject" name="subject">
+                            </div><!-- /.col-md-12 -->
+                            <div class="col-md-12">
+                                <textarea name="message" placeholder="Messages"></textarea>
+                            </div><!-- /.col-md-12 -->
+                            <div class="col-md-12">
+                                <button type="submit" class="thm-btn contact-one__btn">Send message</button>
+                            </div><!-- /.col-md-12 -->
+                        </div><!-- /.row -->
+                    </form><!-- /.contact-one__form -->
+                    <div class="result"></div><!-- /.result -->
+                </div><!-- /.col-xl-8 -->
+            </div><!-- /.row -->
+        </div><!-- /.container -->
+    </section><!-- /.contact-one -->
+{% endblock %}

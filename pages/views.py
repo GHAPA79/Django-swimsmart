@@ -1,5 +1,3 @@
-from django.shortcuts import render
-
 from django.views.generic import TemplateView
 
 
@@ -69,3 +67,7 @@ class CHNMethodSemiEndu(TemplateView):
 
 class CHNMethodEndu(TemplateView):
     template_name = 'chn-endu.html'
+
+
+class ContactView(TemplateView):
+    template_name = 'contact.html'
