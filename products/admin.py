@@ -4,14 +4,13 @@ from . import models
 
 
 @admin.register(models.Category)
-class MethodCategoryAdmin(admin.ModelAdmin):
+class CategoryAdmin(admin.ModelAdmin):
     list_display = ['method_name', 'type_swimmer']
 
 
 @admin.register(models.Product)
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ['title', 'price', 'number_of_sessions']
-    list_editable = ['price']
+    list_display = ['title', 'category', 'price', 'number_of_sessions', 'duration']
 
 
 @admin.register(models.Comment)

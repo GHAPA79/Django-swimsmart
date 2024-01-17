@@ -21,7 +21,7 @@ class Category(models.Model):
     description = models.TextField(blank=True)
 
     def __str__(self):
-        return f'Method: {self.method_name} | Type_swimmer: {self.TYPE_SWIMMERS}'
+        return f'Method: {self.method_name} | Type_swimmer: {self.type_swimmer}'
 
 
 class Product(models.Model):
@@ -29,8 +29,9 @@ class Product(models.Model):
     category = models.ForeignKey(Category, on_delete=models.PROTECT, related_name='products')
     description = models.TextField(blank=True)
     price = models.PositiveIntegerField(default=0)
-    duration = models.DurationField(default=0)
+    duration = models.CharField(max_length=255)
     number_of_sessions = models.PositiveIntegerField(default=0)
+    pdf_file = models.FileField(upload_to='product/product_pdf/')
 
     def __str__(self):
         return f'Title: {self.title} | Price: {self.price}'
