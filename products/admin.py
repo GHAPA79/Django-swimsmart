@@ -11,6 +11,7 @@ class CategoryAdmin(admin.ModelAdmin):
 @admin.register(models.Product)
 class ProductAdmin(admin.ModelAdmin):
     list_display = ['title', 'category', 'price', 'number_of_sessions', 'duration']
+    list_per_page = 12
 
 
 @admin.register(models.Comment)

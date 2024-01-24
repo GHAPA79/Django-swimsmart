@@ -1,3 +1,9 @@
-from django.shortcuts import render
+from django.views import generic
 
-# Create your views here.
+from .models import Product
+
+
+class USAMethodFast(generic.ListView):
+    queryset = Product.objects.filter(category_id=1)
+    template_name = 'usa-fast.html'
+    context_object_name = 'products'

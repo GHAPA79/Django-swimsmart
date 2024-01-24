@@ -21,10 +21,6 @@ class CHNMethod(TemplateView):
     template_name = 'chn.html'
 
 
-class USAMethodFast(TemplateView):
-    template_name = 'usa-fast.html'
-
-
 class USAMethodSemiEndu(TemplateView):
     template_name = 'usa-semi-en.html'
 
