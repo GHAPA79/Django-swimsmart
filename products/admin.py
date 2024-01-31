@@ -14,9 +14,9 @@ class ProductAdmin(admin.ModelAdmin):
     list_per_page = 12
 
 
-@admin.register(models.Comment)
-class CommentAdmin(admin.ModelAdmin):
-    list_display = ['user', 'product', 'stars', 'active', 'datetime_modified']
+@admin.register(models.Contact)
+class ContactAdmin(admin.ModelAdmin):
+    list_display = ['first_name', 'last_name', 'text', 'active', 'datetime_modified']
     list_editable = ['active']
 
 

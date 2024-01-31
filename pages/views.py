@@ -63,7 +63,3 @@ class CHNMethodSemiEndu(TemplateView):
 
 class CHNMethodEndu(TemplateView):
     template_name = 'chn-endu.html'
-
-
-class ContactView(TemplateView):
-    template_name = 'contact.html'

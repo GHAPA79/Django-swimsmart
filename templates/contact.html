@@ -1,4 +1,5 @@
 {% extends '_base.html' %}
+{% load crispy_forms_filters %}
 {% load static %}
 
 {% block page_title %}
@@ -7,7 +8,8 @@
 
 {% block content %}
     <section class="page-header">
-    <div class="page-header__bg" style="background-image: url({% static 'assets/images/background/footer-bg-1-1.jpg' %});"></div>
+        <div class="page-header__bg"
+             style="background-image: url({% static 'assets/images/background/footer-bg-1-1.jpg' %});"></div>
         <!-- /.page-header__bg -->
         <div class="container">
             <h2 class="page-header__title">contact us</h2><!-- /.page-header__title -->
@@ -33,36 +35,12 @@
                     </div><!-- /.contact-one__content -->
                 </div><!-- /.col-xl-4 -->
                 <div class="col-xl-8">
-                    <form action="assets/inc/sendemail.php" class="contact-one__form contact-form-validated">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <input type="text" placeholder="Full Name" name="name">
-                            </div><!-- /.col-md-6 -->
-                            <div class="col-md-6">
-                                <input type="text" placeholder="Email Address" name="email">
-                            </div><!-- /.col-md-6 -->
-                            <div class="col-md-6">
-                                <input type="text" placeholder="Phone number" name="phone">
-                            </div><!-- /.col-md-6 -->
-                            <div class="col-md-6">
-                                <select class="selectpicker" name="service">
-                                    <option value="">Discussion For</option>
-                                    <option value="About Course">Query For Courses</option>
-                                    <option value="About Pricing">Query For Pricing</option>
-                                </select>
-                            </div><!-- /.col-md-6 -->
-                            <div class="col-md-12">
-                                <input type="text" placeholder="Subject" name="subject">
-                            </div><!-- /.col-md-12 -->
-                            <div class="col-md-12">
-                                <textarea name="message" placeholder="Messages"></textarea>
-                            </div><!-- /.col-md-12 -->
-                            <div class="col-md-12">
-                                <button type="submit" class="thm-btn contact-one__btn">Send message</button>
-                            </div><!-- /.col-md-12 -->
-                        </div><!-- /.row -->
+                    <form method="post" action=""
+                          class="contact-one__form contact-form-validated">
+                        {% csrf_token %}
+                        {{ form|crispy }}
+                        <input value="Send Message" type="submit" class="thm-btn contact-one__btn">
                     </form><!-- /.contact-one__form -->
-                    <div class="result"></div><!-- /.result -->
                 </div><!-- /.col-xl-8 -->
             </div><!-- /.row -->
         </div><!-- /.container -->

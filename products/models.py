@@ -37,34 +37,26 @@ class Product(models.Model):
         return f'Title: {self.title} | Price: {self.price}'
 
 
-class ActiveCommentsManager(models.Manager):
+class ActiveContactsManager(models.Manager):
     def get_queryset(self):
-        return super(ActiveCommentsManager, self).get_queryset().filter(active=True)
+        return super(ActiveContactsManager, self).get_queryset().filter(active=True)
 
 
-class Comment(models.Model):
-    PRODUCT_STARS = [
-        ('1', 'Very Bad'),
-        ('2', 'Bad'),
-        ('3', 'Normal'),
-        ('4', 'Good'),
-        ('5', 'Perfect'),
-    ]
-
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='comments')
-    product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='comments')
+class Contact(models.Model):
+    first_name = models.CharField(max_length=255)
+    last_name = models.CharField(max_length=255)
+    phone_number = models.CharField(max_length=12)
     text = models.TextField()
-    stars = models.CharField(max_length=10, choices=PRODUCT_STARS, )
     datetime_created = models.DateTimeField(auto_now_add=True)
     datetime_modified = models.DateTimeField(auto_now=True)
-    active = models.BooleanField(default=True)
+    active = models.BooleanField(default=False)
 
     # Custom Manager
     objects = models.Manager()
-    active_comments = ActiveCommentsManager()
+    active_comments = ActiveContactsManager()
 
     def __str__(self):
-        return f'Author: {self.user} | text: {self.text}'
+        return f'Author: {self.first_name} {self.last_name} | text: {self.text}'
 
 
 class Customer(models.Model):
