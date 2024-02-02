@@ -37,28 +37,6 @@ class Product(models.Model):
         return f'Title: {self.title} | Price: {self.price}'
 
 
-class ActiveContactsManager(models.Manager):
-    def get_queryset(self):
-        return super(ActiveContactsManager, self).get_queryset().filter(active=True)
-
-
-class Contact(models.Model):
-    first_name = models.CharField(max_length=255)
-    last_name = models.CharField(max_length=255)
-    phone_number = models.CharField(max_length=12)
-    text = models.TextField()
-    datetime_created = models.DateTimeField(auto_now_add=True)
-    datetime_modified = models.DateTimeField(auto_now=True)
-    active = models.BooleanField(default=False)
-
-    # Custom Manager
-    objects = models.Manager()
-    active_comments = ActiveContactsManager()
-
-    def __str__(self):
-        return f'Author: {self.first_name} {self.last_name} | text: {self.text}'
-
-
 class Customer(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.PROTECT)
     phone_number = models.CharField(max_length=12)

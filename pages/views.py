@@ -5,6 +5,10 @@ class HomePage(TemplateView):
     template_name = 'home.html'
 
 
+class ContactView(TemplateView):
+    template_name = 'contact.html'
+
+
 class USAMethod(TemplateView):
     template_name = 'usa.html'
 
@@ -63,3 +67,4 @@ class CHNMethodSemiEndu(TemplateView):
 
 class CHNMethodEndu(TemplateView):
     template_name = 'chn-endu.html'
+
