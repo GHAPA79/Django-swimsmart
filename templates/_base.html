@@ -57,13 +57,7 @@
             </div><!-- /.logo-box -->
             <div class="main-nav__main-navigation">
                 <ul class="main-nav__navigation-box">
-                    <form class="form-inline" action="" dir="rtl">
-                        <input type="text" name="q" class="form-control" placeholder="جستجوی متن">
-                        <button class="btn btn-success" style="padding: 8px; border-radius: 5px; margin-right: 5px;">
-                            search
-                        </button>
-                    </form>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
                     <li class="dropdown">
                         <a href="{% url 'home' %}">صفحه اصلی</a>
                     <li class="dropdown">
@@ -76,8 +70,15 @@
                         </ul>
                     </li>
                     <li class="dropdown">
-                        <a href="">گالری</a>
+                        <a href="">راهنمای تمرینات</a>
+                        <ul>
+                            <li><a href="#">راهنمای نرمش و حرکات کششی</a></li>
+                            <li><a href="#">راهنمای گرم کردن در تمرینات</a></li>
+                            <li><a href="#">راهنمای سرد کردن در تمرینات</a></li>
+
+                        </ul>
                     </li>
+                    {#                    <li><a href="{% url 'contact' %}">فروشگاه</a></li>#}
                     <li><a href="{% url 'contact' %}">تماس با ما</a></li>
                 </ul><!-- /.main-nav__navigation-box -->
             </div><!-- /.main-nav__main-navigation -->
