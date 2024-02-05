@@ -9,5 +9,8 @@ urlpatterns = [
     path('aus-method-fast/', views.AUSMethodFast.as_view(), name='aus-method-fast'),
     path('aus-method-semi-endu/', views.AUSMethodSemiEndu.as_view(), name='aus-method-semi-endu'),
     path('aus-method-endu/', views.AUSMethodEndu.as_view(), name='aus-method-endu'),
+    path('uk-method-fast/', views.UKMethodFast.as_view(), name='uk-method-fast'),
+    path('uk-method-semi-endu/', views.UKMethodSemiEndu.as_view(), name='uk-method-semi-endu'),
+    path('uk-method-endu/', views.UKMethodEndu.as_view(), name='uk-method-endu'),
 
 ]

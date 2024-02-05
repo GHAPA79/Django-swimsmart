@@ -37,3 +37,21 @@ class AUSMethodEndu(generic.ListView):
     queryset = Product.objects.filter(category_id=11)
     template_name = 'aus-endu.html'
     context_object_name = 'products'
+
+
+class UKMethodFast(generic.ListView):
+    queryset = Product.objects.filter(category_id=2)
+    template_name = 'uk-fast.html'
+    context_object_name = 'products'
+
+
+class UKMethodSemiEndu(generic.ListView):
+    queryset = Product.objects.filter(category_id=6)
+    template_name = 'uk-semi-en.html'
+    context_object_name = 'products'
+
+
+class UKMethodEndu(generic.ListView):
+    queryset = Product.objects.filter(category_id=10)
+    template_name = 'uk-endu.html'
+    context_object_name = 'products'
