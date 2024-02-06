@@ -23,16 +23,3 @@ class UKMethod(TemplateView):
 
 class CHNMethod(TemplateView):
     template_name = 'chn.html'
-
-
-class CHNMethodFast(TemplateView):
-    template_name = 'chn-fast.html'
-
-
-class CHNMethodSemiEndu(TemplateView):
-    template_name = 'chn-semi-en.html'
-
-
-class CHNMethodEndu(TemplateView):
-    template_name = 'chn-endu.html'
-

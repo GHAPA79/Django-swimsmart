@@ -55,3 +55,21 @@ class UKMethodEndu(generic.ListView):
     queryset = Product.objects.filter(category_id=10)
     template_name = 'uk-endu.html'
     context_object_name = 'products'
+
+
+class CHNMethodFast(generic.ListView):
+    queryset = Product.objects.filter(category_id=4)
+    template_name = 'chn-fast.html'
+    context_object_name = 'products'
+
+
+class CHNMethodSemiEndu(generic.ListView):
+    queryset = Product.objects.filter(category_id=8)
+    template_name = 'chn-semi-en.html'
+    context_object_name = 'products'
+
+
+class CHNMethodEndu(generic.ListView):
+    queryset = Product.objects.filter(category_id=12)
+    template_name = 'chn-endu.html'
+    context_object_name = 'products'

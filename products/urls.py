@@ -12,5 +12,7 @@ urlpatterns = [
     path('uk-method-fast/', views.UKMethodFast.as_view(), name='uk-method-fast'),
     path('uk-method-semi-endu/', views.UKMethodSemiEndu.as_view(), name='uk-method-semi-endu'),
     path('uk-method-endu/', views.UKMethodEndu.as_view(), name='uk-method-endu'),
-
+    path('chn-method-fast/', views.CHNMethodFast.as_view(), name='chn-method-fast'),
+    path('chn-method-semi-endu/', views.CHNMethodSemiEndu.as_view(), name='chn-method-semi-endu'),
+    path('chn-method-endu/', views.CHNMethodEndu.as_view(), name='chn-method-endu'),
 ]

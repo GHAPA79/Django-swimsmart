@@ -13,60 +13,35 @@
         </div><!-- /.container -->
     </section><!-- /.page-header -->
 
-    <section class="course-one">
+    <section class="blog-one" dir="rtl">
         <div class="container">
             <div class="row">
-                <div class="col-lg-5 col-md-6">
-                    <div class="course-one__single">
-                        <div class="course-one__content hvr-sweep-to-bottom">
-                            <h3><a href="{% url 'usa-method' %}">فصل آماده سازی عمومی</a></h3>
-                            <p>There are many variatin of passages of lorem ipsum available, but the majority have.</p>
-                        </div><!-- /.course-one__content -->
-                        <a href="{% url 'usa-method' %}" class="course-one__book-link">انتخاب</a>
-                    </div><!-- /.course-one__single -->
-                </div><!-- /.col-lg-4 col-md-6 -->
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <div class="col-lg-5 col-md-6">
-                    <div class="course-one__single">
-                        <div class="course-one__content hvr-sweep-to-bottom">
-                            <h3><a href="{% url 'aus-method' %}">فصل آماده سازی اختصاصی</a></h3>
-                            <p>There are many variatin of passages of lorem ipsum available, but the majority have.</p>
-                        </div><!-- /.course-one__content -->
-                        <a href="{% url 'aus-method' %}" class="course-one__book-link">انتخاب</a>
-                    </div><!-- /.course-one__single -->
-                </div><!-- /.col-lg-4 col-md-6 -->
-                <div class="col-lg-5 col-md-6">
-                    <div class="course-one__single">
-                        <div class="course-one__content hvr-sweep-to-bottom">
-                            <h3><a href="{% url 'uk-method' %}">فصل آماده سازی رقابتی</a></h3>
-                            <p>There are many variatin of passages of lorem ipsum available, but the majority have.</p>
-                        </div><!-- /.course-one__content -->
-                        <a href="{% url 'uk-method' %}" class="course-one__book-link">انتخاب</a>
-                    </div><!-- /.course-one__single -->
-                </div><!-- /.col-lg-4 col-md-6 -->
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <div class="col-lg-5 col-md-6">
-                    <div class="course-one__single">
-                        <div class="course-one__content hvr-sweep-to-bottom">
-                            <h3><a href="{% url 'chn-method' %}">فصل آماده سازی تیپر</a></h3>
-                            <p>There are many variatin of passages of lorem ipsum available, but the majority have.</p>
-                        </div><!-- /.course-one__content -->
-                        <a href="{% url 'chn-method' %}" class="course-one__book-link">انتخاب</a>
-                    </div><!-- /.course-one__single -->
-                </div><!-- /.col-lg-4 col-md-6 -->
+                {% for product in products %}
+                    <div class="col-lg-3 col-md-5 shadow">
+                        <div class="blog-one__single">
+                            <div class="blog-one__content">
+                                <h3><a href="news-details.html">{{ product.title }}</a></h3>
+                                <a href=""><span class="money">{{ product.price }} تومان </span></a>
+                                <a href="">
+                                    <div class="blog-one__meta">
+                                        <i> مدت زمان: {{ product.duration }}</i>
+                                        <i>تعداد جلسات: {{ product.number_of_sessions }}</i>
+                                    </div><!-- /.blog-one__meta --></a>
+                            </div><!-- /.blog-one__content -->
+                        </div><!-- /.blog-one__single -->
+                    </div><!-- /.col-lg-4 col-md-6 -->
+                {% endfor %}
             </div><!-- /.row -->
         </div><!-- /.container -->
-    </section><!-- /.course-one -->
+    </section><!-- /.blog-one -->
 
-    <div class="site-footer__bottom">
+    <div class="site-footer__bottom mb-5">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <a href="mailto:needhelp@example.com"><i class="fa fa-shopping-cart"></i>خرید دوره یکساله تمرینات
-                        سرعتی</a>
+                    <a href="mailto:needhelp@example.com"><i class="fa fa-shopping-cart"></i><h2>خرید دوره یکساله تمرینات سرعتی</h2></a>
                 </div><!-- /.col-lg-4 -->
             </div><!-- /.row -->
         </div><!-- /.container -->
     </div><!-- /.site-footer__bottom -->
-    <br><br><br><br><br>
 {% endblock content %}
