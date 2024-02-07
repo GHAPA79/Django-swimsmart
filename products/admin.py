@@ -16,4 +16,4 @@ class ProductAdmin(admin.ModelAdmin):
 
 @admin.register(models.Customer)
 class CustomerAdmin(admin.ModelAdmin):
-    list_display = ['user', 'phone_number']
+    list_display = ['user']
