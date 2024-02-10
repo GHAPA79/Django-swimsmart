@@ -23,3 +23,15 @@ class UKMethod(TemplateView):
 
 class CHNMethod(TemplateView):
     template_name = 'chn.html'
+
+
+class AboutMethods(TemplateView):
+    template_name = 'about-methods.html'
+
+
+class GuideExercise(TemplateView):
+    template_name = 'guide-exercise.html'
+
+
+class WarmUpAndColdDown(TemplateView):
+    template_name = 'warm-up-and-cold-down.html'
