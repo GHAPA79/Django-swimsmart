@@ -1,1 +1,45 @@
-<h1>راهنمای تمرینات</h1>
+{% extends '_base.html' %}
+
+{% load static %}
+
+{% block page_title %}
+    راهنمای تمرینات
+{% endblock %}
+
+{% block content %}
+    <style>
+        h1 {
+            text-align: center;
+        }
+
+        p {
+            text-align: center;
+        }
+
+        div {
+            text-align: center;
+        }
+    </style>
+    <section class="page-header">
+        <div class="page-header__bg"
+             style="background-image: url({% static 'assets/images/background/footer-bg-1-1.jpg' %});"></div>
+        <!-- /.page-header__bg -->
+        <div class="container">
+            <h2 class="page-header__title">About swimming exercises</h2><!-- /.page-header__title -->
+        </div><!-- /.container -->
+    </section><!-- /.page-header -->
+
+    <div class="container mt-5">
+        <h1><strong>راهنمای تمرینات شنا</strong></h1>
+    </div>
+    <div class="container mt-5 mb-5"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid doloribus est
+        inventore
+        nihil nisi omnis
+        quaerat. Ab aliquid architecto consectetur dolor dolore enim ex inventore ipsa nemo quas quo quos reiciendis
+        sapiente, sunt tempora temporibus tenetur ut. Aperiam culpa ducimus ipsa optio placeat, veniam veritatis? Atque
+        consectetur fuga nam nisi qui sunt, unde voluptatum. Alias blanditiis deserunt dolor eius enim officiis sit
+        temporibus unde? Fugit laudantium porro quasi quisquam? Architecto assumenda at blanditiis culpa deleniti
+        deserunt eos et facere labore magnam maxime minus necessitatibus nulla, numquam optio reprehenderit rerum! Animi
+        asperiores beatae culpa dolorem laudantium nulla quam tempore temporibus vel.</p></div>
+
+{% endblock %}
