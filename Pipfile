@@ -10,6 +10,7 @@ crispy-bootstrap5 = "*"
 pillow = "*"
 mysqlclient = "*"
 django-debug-toolbar = "*"
+az-iranian-bank-gateways = "*"
 
 [dev-packages]
 
