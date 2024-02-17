@@ -11,6 +11,7 @@ pillow = "*"
 mysqlclient = "*"
 django-debug-toolbar = "*"
 az-iranian-bank-gateways = "*"
+environs = "*"
 
 [dev-packages]
 

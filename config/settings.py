@@ -12,6 +12,11 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 import os
+from environs import Env
+
+# For environment variable
+env = Env()
+env.read_env()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,10 +25,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-7*3p37x6$=i5bhh5#!$nn=z692ix30)krbc4pxld+s8%j+n#2_'
+SECRET_KEY = env("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = env.bool("DJANGO_DEBUG")
 
 ALLOWED_HOSTS = []
 
@@ -87,10 +92,10 @@ WSGI_APPLICATION = 'config.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'swimsmart',
         'HOST': 'localhost',
-        'USER': 'root',
-        'PASSWORD': '1379S@man',
+        'NAME': env('DATABASE_NAME'),
+        'USER': env('DATABASE_USER'),
+        'PASSWORD': env('DATABASE_PASS'),
     }
 }
 
@@ -156,11 +161,11 @@ INTERNAL_IPS = ["127.0.0.1", ]
 # payment config
 AZ_IRANIAN_BANK_GATEWAYS = {
    'GATEWAYS': {
-       'ZARINPAL': {
-           'MERCHANT_CODE': '<YOUR MERCHANT CODE>',
+       'BAHAMTA': {
+           'MERCHANT_CODE': env("MERCHANT_CODE"),
        },
    },
-   'DEFAULT': 'IDPAY',
+   'DEFAULT': 'BAHAMTA',
    'CURRENCY': 'IRR',  # اختیاری
    'TRACKING_CODE_QUERY_PARAM': 'tc',  # اختیاری
    'TRACKING_CODE_LENGTH': 16,  # اختیاری
