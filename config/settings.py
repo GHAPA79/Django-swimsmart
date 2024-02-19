@@ -46,7 +46,6 @@ INSTALLED_APPS = [
     'crispy_forms',
     'crispy_bootstrap5',
     'debug_toolbar',
-    'azbankgateways',
 
     # Local apps
     'accounts',
@@ -157,20 +156,3 @@ CRISPY_TEMPLATE_PACK = 'bootstrap5'
 
 # Debug_toolbar config
 INTERNAL_IPS = ["127.0.0.1", ]
-
-# payment config
-AZ_IRANIAN_BANK_GATEWAYS = {
-   'GATEWAYS': {
-       'BAHAMTA': {
-           'MERCHANT_CODE': env("MERCHANT_CODE"),
-       },
-   },
-   'DEFAULT': 'BAHAMTA',
-   'CURRENCY': 'IRR',  # اختیاری
-   'TRACKING_CODE_QUERY_PARAM': 'tc',  # اختیاری
-   'TRACKING_CODE_LENGTH': 16,  # اختیاری
-   'SETTING_VALUE_READER_CLASS': 'azbankgateways.readers.DefaultReader',  # اختیاری
-   'BANK_PRIORITIES': [
-       # and so on ...
-   ],  # اختیاری
-}

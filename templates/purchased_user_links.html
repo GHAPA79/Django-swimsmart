@@ -1,0 +1,45 @@
+{% extends '_base.html' %}
+
+{% load static %}
+
+{% block page_title %}
+    لینک دوره های خریداری شده
+{% endblock %}
+
+{% block content %}
+    <section class="page-header">
+        <div class="page-header__bg"
+             style="background-image: url({% static 'assets/images/background/footer-bg-1-1.jpg' %});"></div>
+        <!-- /.page-header__bg -->
+        <div class="container">
+            <h2 class="page-header__title">لینک دوره های خریداری شده</h2><!-- /.page-header__title -->
+        </div><!-- /.container -->
+    </section><!-- /.page-header -->
+    <section class="pricing-one">
+        <img src="{% static 'assets/images/shapes/swimmer-contact-1.png' %}" class="contact-one__swimmer" alt="">
+        <div class="container">
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                    <tr>
+                        <th>نام دوره</th>
+                        <th>نوع دوره</th>
+                        <th>نوع متد</th>
+                        <th>لینک</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for product in products %}
+                        <tr>
+                            <td>{{ product.title }}</td>
+                            <td>{{ product.category.type_swimmer }}</td>
+                            <td>{{ product.category.method_name }}</td>
+                            <td><a href="{{ product.pdf_file.url }}">دانلود فایل</a></td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div><!-- /.table-responsive -->
+        </div><!-- /.container -->
+    </section><!-- /.pricing-one -->
+{% endblock %}

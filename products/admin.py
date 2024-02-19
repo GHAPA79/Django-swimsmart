@@ -17,3 +17,8 @@ class ProductAdmin(admin.ModelAdmin):
 @admin.register(models.Customer)
 class CustomerAdmin(admin.ModelAdmin):
     list_display = ['user']
+
+#
+# @admin.register(models.Exercise)
+# class ExerciseAdmin(admin.ModelAdmin):
+#     list_display = ['title', 'price']

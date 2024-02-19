@@ -1,6 +1,8 @@
 from django.views import generic
+from django.shortcuts import render
 
 from .models import Product
+from accounts.models import CustomUser
 
 
 class USAMethodFast(generic.ListView):
@@ -73,3 +75,12 @@ class CHNMethodEndu(generic.ListView):
     queryset = Product.objects.filter(category_id=12)
     template_name = 'chn-endu.html'
     context_object_name = 'products'
+
+
+class DownloadExercise(generic.ListView):
+    queryset = Product.objects.all()
+    template_name = 'purchased_user_links.html'
+    context_object_name = 'products'
+
+    def get_object(self, queryset=None):
+        return CustomUser.objects.get(pk=self.request.user.pk)
