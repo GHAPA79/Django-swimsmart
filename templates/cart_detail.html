@@ -23,6 +23,7 @@
                 <table>
                     <thead>
                     <tr>
+                        <th>حذف</th>
                         <th>نام دوره</th>
                         <th>نوع دوره</th>
                         <th>نوع متد</th>
@@ -30,54 +31,19 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td>Extended Range</td>
-                        <td>$25</td>
-                        <td>-</td>
-                        <td>1</td>
-                    </tr>
-                    <tr>
-                        <td>PADI Discover Snorkeling</td>
-                        <td>$35</td>
-                        <td>-</td>
-                        <td>1</td>
-                    </tr>
-                    <tr>
-                        <td>Supplied Air Diving</td>
-                        <td>$40</td>
-                        <td>1</td>
-                        <td>1</td>
-                    </tr>
-                    <tr>
-                        <td>Fun Diving for Certified</td>
-                        <td>$60</td>
-                        <td>-</td>
-                        <td>2</td>
-                    </tr>
-                    <tr>
-                        <td>PADI Discover Skin Diver</td>
-                        <td>$95</td>
-                        <td>-</td>
-                        <td>2</td>
-                    </tr>
-                    <tr>
-                        <td>PADI Discover Scuba Diving</td>
-                        <td>$89</td>
-                        <td>2</td>
-                        <td>2</td>
-                    </tr>
-                    <tr>
-                        <td>Tandem Scuba Diver</td>
-                        <td>$100</td>
-                        <td>3</td>
-                        <td>4</td>
-                    </tr>
-                    <tr>
-                        <td>Recreatetional Hookah Diver</td>
-                        <td>$125</td>
-                        <td>4</td>
-                        <td>5</td>
-                    </tr>
+                    {% for item in cart %}
+                        <tr>
+                            <td>
+                                <a href="{% url 'cart:cart-remove' item.product_obj.id %}">
+                                    <i class="fa fa-times"></i>
+                                </a>
+                            </td>
+                            <td>{{ item.product_obj.title }}</td>
+                            <td>{{ item.product_obj.category.type_swimmer }}</td>
+                            <td>{{ item.product_obj.category.method_name }}</td>
+                            <td>{{ item.product_obj.price }}</td>
+                        </tr>
+                    {% endfor %}
                     </tbody>
                 </table>
             </div><!-- /.table-responsive -->
@@ -93,7 +59,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <a href="mailto:needhelp@example.com" dir="rtl"><i class="fa fa-shopping-cart ml-3"></i>
-                        <h3>ثبت سفارش | قیمت کل:</h3></a>
+                        <h3>ثبت سفارش | قیمت کل: {{ cart.get_total_price }} تومان </h3></a>
                 </div><!-- /.col-lg-4 -->
             </div><!-- /.row -->
         </div><!-- /.container -->
