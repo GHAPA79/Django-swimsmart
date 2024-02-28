@@ -50,9 +50,12 @@
         </div><!-- /.container -->
     </section><!-- /.pricing-one -->
 
-    <div class=" container d-grid gap-3 mb-5">
-        <button class="btn btn-danger font-weight-bold" type="submit">خالی کردن سبد خرید</button>
-    </div>
+    <form action="{% url 'cart:cart_clear' %}" method="POST">
+        {% csrf_token %}
+        <div class=" container d-grid gap-3 mb-5">
+            <button class="btn btn-danger font-weight-bold" type="submit">خالی کردن سبد خرید</button>
+        </div>
+    </form>
     <hr><br>
     <div class="site-footer__bottom mb-5">
         <div class="container">
