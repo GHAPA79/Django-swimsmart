@@ -1,6 +1,7 @@
 {% extends '_base.html' %}
-
 {% load static %}
+{% load persian_translation_tags %}
+{% load humanize %}
 
 {% block page_title %}
     سبد خرید
@@ -28,6 +29,7 @@
                         <th>نوع دوره</th>
                         <th>نوع متد</th>
                         <th>قیمت</th>
+                        <th>واحد قیمت</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -41,7 +43,8 @@
                             <td>{{ item.product_obj.title }}</td>
                             <td>{{ item.product_obj.category.type_swimmer }}</td>
                             <td>{{ item.product_obj.category.method_name }}</td>
-                            <td>{{ item.product_obj.price }}</td>
+                            <td>{{ item.product_obj.price|intcomma|translate_number }}</td>
+                            <td>تومان</td>
                         </tr>
                     {% endfor %}
                     </tbody>
@@ -62,7 +65,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <a href="mailto:needhelp@example.com" dir="rtl"><i class="fa fa-shopping-cart ml-3"></i>
-                        <h3>ثبت سفارش | قیمت کل: {{ cart.get_total_price }} تومان </h3></a>
+                        <h3>ثبت سفارش | قیمت کل: {{ cart.get_total_price|intcomma|translate_number }} تومان </h3></a>
                 </div><!-- /.col-lg-4 -->
             </div><!-- /.row -->
         </div><!-- /.container -->
