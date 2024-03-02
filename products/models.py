@@ -34,7 +34,7 @@ class Product(models.Model):
     pdf_file = models.FileField(upload_to='product/product_pdf/')
 
     def __str__(self):
-        return f'Title: {self.title} | Price: {self.price}'
+        return f'Title: {self.title} | Method: {self.category.method_name} | Type_swimmer: {self.category.type_swimmer}'
 
 
 class Customer(models.Model):
