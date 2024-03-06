@@ -50,30 +50,24 @@
     </section><!-- /.pricing-one -->
 
     <div class="container">
-        <form action="assets/inc/sendemail.php" class="contact-one__form contact-form-validated">
+        <form action="" class="contact-one__form contact-form-validated mb-5">
             <div class="row">
                 <div class="col-md-6">
-                    <input type="text" placeholder="Full Name" name="name">
+                    <label for="first_name">نام<span class="required"> *</span></label>
+                    <input id="first_name" type="text" name="first_name">
                 </div><!-- /.col-md-6 -->
                 <div class="col-md-6">
-                    <input type="text" placeholder="Email Address" name="email">
+                    <label for="last_name">نام خانوادگی<span class="required"> *</span></label>
+                    <input id="last_name" type="text" name="last_name">
                 </div><!-- /.col-md-6 -->
                 <div class="col-md-6">
-                    <input type="text" placeholder="Phone number" name="phone">
+                    <label for="email">آدرس ایمیل</label>
+                    <input id="email" type="text" placeholder="example@gmail.com" name="email">
                 </div><!-- /.col-md-6 -->
                 <div class="col-md-6">
-                    <select class="selectpicker" name="service">
-                        <option value="">Discussion For</option>
-                        <option value="About Course">Query For Courses</option>
-                        <option value="About Pricing">Query For Pricing</option>
-                    </select>
+                    <label for="phone_number">شماره موبایل<span class="required"> *</span></label>
+                    <input id="phone_number" type="text" placeholder="مثال: 09123456789" name="phone_number">
                 </div><!-- /.col-md-6 -->
-                <div class="col-md-12">
-                    <input type="text" placeholder="Subject" name="subject">
-                </div><!-- /.col-md-12 -->
-                <div class="col-md-12">
-                    <textarea name="message" placeholder="Messages"></textarea>
-                </div><!-- /.col-md-12 -->
             </div><!-- /.row -->
         </form><!-- /.contact-one__form -->
         <div class="result"></div><!-- /.result -->
