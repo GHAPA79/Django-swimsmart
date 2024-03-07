@@ -20,7 +20,6 @@
     </section><!-- /.page-header -->
 
     <section class="pricing-one">
-        <img src="assets/images/shapes/swimmer-contact-1.png" class="contact-one__swimmer" alt="">
         <div class="container">
             <div class="table-responsive">
                 <table>
@@ -50,24 +49,31 @@
     </section><!-- /.pricing-one -->
 
     <div class="container">
-        <form action="" class="contact-one__form contact-form-validated mb-5">
+        <form action="" method="POST" class="contact-one__form contact-form-validated mb-5">
+            {% csrf_token %}
+            {% if form.errors %}
+                <div class="alert alert-danger">
+                    {{ form.errors }}
+                </div>
+            {% endif %}
             <div class="row">
                 <div class="col-md-6">
                     <label for="first_name">نام<span class="required"> *</span></label>
-                    <input id="first_name" type="text" name="first_name">
+                    <input id="first_name" type="text" name="{{ form.first_name.name }}">
                 </div><!-- /.col-md-6 -->
                 <div class="col-md-6">
                     <label for="last_name">نام خانوادگی<span class="required"> *</span></label>
-                    <input id="last_name" type="text" name="last_name">
+                    <input id="last_name" type="text" name="{{ form.last_name.name }}">
                 </div><!-- /.col-md-6 -->
                 <div class="col-md-6">
                     <label for="email">آدرس ایمیل</label>
-                    <input id="email" type="text" placeholder="example@gmail.com" name="email">
+                    <input id="email" type="text" placeholder="example@gmail.com" name="{{ form.email.name }}">
                 </div><!-- /.col-md-6 -->
                 <div class="col-md-6">
                     <label for="phone_number">شماره موبایل<span class="required"> *</span></label>
-                    <input id="phone_number" type="text" placeholder="مثال: 09123456789" name="phone_number">
+                    <input id="phone_number" type="text" placeholder="مثال: 09123456789" name="{{ form.phone_number.name }}">
                 </div><!-- /.col-md-6 -->
+                <button type="submit" class="btn btn-success ">ارسال</button>
             </div><!-- /.row -->
         </form><!-- /.contact-one__form -->
         <div class="result"></div><!-- /.result -->
