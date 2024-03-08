@@ -48,7 +48,7 @@
         </div><!-- /.container -->
     </section><!-- /.pricing-one -->
 
-    <div class="container">
+    <div class="container mb-5">
         <form action="" method="POST" class="contact-one__form contact-form-validated mb-5">
             {% csrf_token %}
             {% if form.errors %}
@@ -66,27 +66,22 @@
                     <input id="last_name" type="text" name="{{ form.last_name.name }}">
                 </div><!-- /.col-md-6 -->
                 <div class="col-md-6">
-                    <label for="email">آدرس ایمیل</label>
+                    <label for="email">آدرس ایمیل<span> (اختیاری)</span></label>
                     <input id="email" type="text" placeholder="example@gmail.com" name="{{ form.email.name }}">
                 </div><!-- /.col-md-6 -->
                 <div class="col-md-6">
                     <label for="phone_number">شماره موبایل<span class="required"> *</span></label>
-                    <input id="phone_number" type="text" placeholder="مثال: 09123456789" name="{{ form.phone_number.name }}">
+                    <input id="phone_number" type="text" placeholder="مثال: 09123456789"
+                           name="{{ form.phone_number.name }}">
                 </div><!-- /.col-md-6 -->
-                <button type="submit" class="btn btn-success ">ارسال</button>
+                <div class="d-grid gap-2 mt-5 mb-3" style="height: 100px">
+                    <button style="font-size: 30px" class="btn btn-success" type="submit"> پرداخت | قیمت
+                        کل: {{ cart.get_total_price|intcomma|translate_number }} تومان
+                    </button>
+                </div>
             </div><!-- /.row -->
         </form><!-- /.contact-one__form -->
         <div class="result"></div><!-- /.result -->
     </div><!-- /.col-xl-8 -->
 
-    <div class="site-footer__bottom mb-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <a href="mailto:needhelp@example.com" dir="rtl"><i class="fa fa-shopping-cart ml-3"></i>
-                        <h3> پرداخت | قیمت کل: {{ cart.get_total_price|intcomma|translate_number }} تومان </h3></a>
-                </div><!-- /.col-lg-4 -->
-            </div><!-- /.row -->
-        </div><!-- /.container -->
-    </div><!-- /.site-footer__bottom -->
 {% endblock %}

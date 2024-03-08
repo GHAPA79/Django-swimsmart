@@ -23,11 +23,11 @@
                 <form action="" method="post">
                     {% csrf_token %}
                     {{ form|crispy }}
-                    <div class="d-grid gap-3 mb-3">
+                    <div style="height: 50px" class="d-grid gap-3 mb-3">
                         <button class="btn btn-success font-weight-bold" type="submit">ویرایش اطلاعات کاربری</button>
                     </div>
                 </form>
-                <div class="d-grid gap-3">
+                <div style="height: 50px" class="d-grid gap-3">
                     <a href="{% url 'download-exercise' %}" class="btn btn-warning font-weight-bold" type="button">لینک دوره های خریداری شده</a>
                     <a href="{% url 'password_change' %}" class="btn btn-danger font-weight-bold" type="button">تغییر رمز عبور</a>
                 </div>

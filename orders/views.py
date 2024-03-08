@@ -13,7 +13,7 @@ def order_create_view(request):
     cart = Cart(request)
 
     if len(cart) == 0:
-        messages.warning(request, 'سبد خرید شما خالی است. حداقل یک تمرین باید در سبد خرید شما باشد')
+        messages.warning(request, 'سبد خرید شما خالی است | حداقل یک تمرین باید در سبد خرید شما باشد')
         return redirect('home')
 
     if request.method == 'POST':
@@ -40,5 +40,7 @@ def order_create_view(request):
             request.user.email = order_obj.email
 
             messages.success(request, 'سفارش شما با موفقیت ثبت شد')
+
+            return redirect('cart:cart-detail')
 
     return render(request, 'order_create.html', context={'form': order_form})
