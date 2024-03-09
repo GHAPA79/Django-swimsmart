@@ -39,8 +39,7 @@ def order_create_view(request):
             request.user.last_name = order_obj.last_name
             request.user.email = order_obj.email
 
-            messages.success(request, 'سفارش شما با موفقیت ثبت شد')
-
-            return redirect('cart:cart-detail')
+            request.session['order_id'] = order_obj.id
+            return redirect('payment:payment_process')
 
     return render(request, 'order_create.html', context={'form': order_form})
