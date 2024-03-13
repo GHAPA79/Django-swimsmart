@@ -164,5 +164,5 @@ CRISPY_TEMPLATE_PACK = 'bootstrap5'
 # Debug_toolbar config
 INTERNAL_IPS = ["127.0.0.1", ]
 
-# ZarinPal merchant id
-ZARINPAL_MERCHANT_ID = env("ZARINPAL_MERCHANT_ID")
+# Zibal merchant id
+ZIBAL_MERCHANT_ID = env("ZIBAL_MERCHANT_ID")

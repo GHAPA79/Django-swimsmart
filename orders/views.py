@@ -26,7 +26,7 @@ def order_create_view(request):
 
             for item in cart:
                 product = item['product_obj']
-                OrderItem.objects.create(
+                OrderItem.objects.select_related('order__user').create(
                     order=order_obj,
                     product=product,
                     quantity=item['quantity'],

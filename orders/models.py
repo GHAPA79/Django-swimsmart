@@ -8,12 +8,12 @@ class Order(models.Model):
 
     first_name = models.CharField(max_length=150)
     last_name = models.CharField(max_length=150)
-    email = models.EmailField(blank=True, unique=True)
+    email = models.EmailField()
     phone_number = models.CharField(max_length=15)
 
-    zarinpal_authority = models.CharField(max_length=255, blank=True)
-    zarinpal_ref_id = models.CharField(max_length=150, blank=True)
-    zarinpal_user_data = models.TextField(blank=True)
+    zibal_authority = models.CharField(max_length=255, blank=True)
+    zibal_ref_id = models.CharField(max_length=150, blank=True)
+    zibal_user_data = models.TextField(blank=True)
 
     datetime_created = models.DateTimeField(auto_now_add=True)
     datetime_modified = models.DateTimeField(auto_now=True)

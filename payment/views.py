@@ -1,7 +1,7 @@
 import requests
 import json
 
-from django.shortcuts import render, get_object_or_404, redirect, reverse
+from django.shortcuts import get_object_or_404, redirect, reverse
 from django.conf import settings
 from django.http import HttpResponse
 
@@ -18,13 +18,14 @@ def payment_process_view(request):
     rial_total_price = toman_total_price * 10
 
     # Request to ZarinPal
-    zarinpal_request_url = 'https://api.zarinpal.com/pg/v4/payment/request.json'
+    zibal_request_url = 'https://gateway.zibal.ir/v1/request'
 
     request_data = {
-        'merchant_id': settings.ZARINPAL_MERCHANT_ID,
-        'amount': rial_total_price,
-        'description': f'#{order.id}: {order.first_name} {order.last_name}',
-        'callback_url': request.build_absolute_uri(reverse('payment:payment_callback')),
+        "merchant": "zibal",
+        "amount": rial_total_price,
+        "callbackUrl": request.build_absolute_uri(reverse('payment:payment_callback')),
+        "description": f'#{order.id}: {order.first_name} {order.last_name}',
+        "mobile": order.phone_number,
     }
 
     request_header = {
@@ -32,36 +33,36 @@ def payment_process_view(request):
         'content-type': 'application/json',
     }
 
-    response = requests.post(url=zarinpal_request_url, data=json.dumps(request_data), headers=request_header)
+    response = requests.post(url=zibal_request_url, data=json.dumps(request_data), headers=request_header)
 
-    data = response.json()['data']
-    authority = data['authority']
-    order.zarinpal_authority = authority
+    data = response.json()
+    trackId = data["trackId"]
+    result = data["result"]
+    order.zarinpal_authority = trackId
     order.save()
 
-    if 'errors' not in data or len(data['errors']) == 0:
-        return redirect(f'https://www.zarinpal.com/pg/StartPay/{authority}')
+    if result == 100:
+        return redirect(f'https://gateway.zibal.ir/start/{trackId}')
     else:
-        return HttpResponse('Error from ZarinPal')
+        return HttpResponse('Error from zibal')
 
 
 def payment_callback_view(request):
     # Get authority from request
-    payment_authority = request.GET.get('authority')
+    payment_trackId = request.GET.get('trackId')
     # Get status from request
     payment_status = request.GET.get('status')
     # Get order with zarinpal_authority
-    order = get_object_or_404(Order, zarinpal_authority=payment_authority)
+    order = get_object_or_404(Order, zarinpal_authority=payment_trackId)
     # Get price from order
     toman_total_price = order.get_total_price()
     rial_total_price = toman_total_price * 10
 
     # Verifying payment status
-    if payment_status == 'OK':
+    if payment_status == 1:
         request_data = {
-            'merchant_id': settings.ZARINPAL_MERCHANT_ID,
-            'amount': rial_total_price,
-            'authority': payment_authority,
+            "merchant": "zibal",
+            "trackId": payment_trackId,
         }
 
         request_header = {
@@ -70,31 +71,29 @@ def payment_callback_view(request):
         }
 
         response = requests.post(
-            url='https://api.zarinpal.com/pg/v4/payment/verify.json',
+            url='https://gateway.zibal.ir/v1/verify',
             data=json.dumps(request_data),
             headers=request_header,
         )
 
         # Verifying payment code
-        if 'data' in response.json() and ('errors' not in response.json()['data'] or len(response.json()['data']['errors']) == 0):
-            data = response.json()['data']
-            payment_code = data['code']
+        data = response.json()
+        payment_code = data["result"]
 
-            if payment_code == 100:
-                order.is_paid = True
-                order.ref_id = data['ref_id']
-                order.zarinpal_user_data = data
-                order.save()
+        if payment_code == 100:
+            order.is_paid = True
+            order.ref_id = data["refNumber"]
+            order.zarinpal_user_data = data
+            order.save()
 
-                return HttpResponse('پرداخت با موفقیت انجام شد')
+            return HttpResponse('پرداخت با موفقیت انجام شد')
 
-            elif payment_code == 101:
-                return HttpResponse('پرداخت با موفقیت انجام شد. البته این تراکنش قبلا ثبت شده است')
+        elif payment_code == 201:
+            return HttpResponse('پرداخت با موفقیت انجام شد. البته این تراکنش قبلا ثبت شده است')
 
-            else:
-                error_code = response.json()['errors']['code']
-                error_message = response.json()['errors']['message']
-                return HttpResponse(f' تراکنش ناموفق بود {error_code} {error_message}')
+        else:
+            error_message = response.json()["message"]
+            return HttpResponse(f' تراکنش ناموفق بود {error_message}')
 
     else:
         return HttpResponse('تراکنش ناموفق بود')
