@@ -1,8 +1,11 @@
+{% load static %}
+
 <div class="topbar-one">
     <div class="container">
         <div class="topbar-one__left">
             {% if user.is_authenticated %}
-                <h4 style="color:#000000">Welcome {{ user.username }}</h4>&nbsp;&nbsp;<a href="{% url 'account:profile' %}"><h5>پروفایل</h5></a><a href="{% url 'logout' %}"><h5>خروج</h5></a>
+                <h4 style="color:#000000">Welcome {{ user.username }}</h4>&nbsp;&nbsp;
+                <a href="{% url 'account:profile' %}"><h5>پروفایل</h5></a><a href="{% url 'logout' %}"><h5>خروج</h5></a>
             {% else %}
                 <a href="{% url 'login' %}"><h5>ورود</h5></a><a href="{% url 'account:signup' %}"><h5>ثبت نام</h5></a>
             {% endif %}
@@ -13,3 +16,42 @@
         </div><!-- /.topbar-one__social -->
     </div><!-- /.container -->
 </div><!-- /.topbar-one -->
+<nav class="main-nav-one stricky main-nav-two">
+    <div class="container">
+        <div class="inner-container">
+            <div class="logo-box">
+                <a href="{% url 'home' %}">
+                    <img src="{% static 'assets/images/logo1.png' %}" alt="" width="210">
+                </a>
+                <a href="#" class="side-menu__toggler"><i class="fa fa-bars"></i></a>
+            </div><!-- /.logo-box -->
+            <div class="main-nav__main-navigation">
+                <ul class="main-nav__navigation-box">
+                    <li class="dropdown">
+                        <a href="{% url 'home' %}" style="font-size: 30px">صفحه اصلی</a>
+                    </li>
+                    <li><a href="{% url 'cart:cart-detail' %}" style="font-size: 30px">سبد خرید</a></li>
+                    <li class="dropdown">
+                        <a href="" style="font-size: 30px">متدها</a>
+                        <ul>
+                            <li><a href="{% url 'usa-method' %}">USA Method</a></li>
+                            <li><a href="{% url 'aus-method' %}">AUS Method</a></li>
+                            <li><a href="{% url 'uk-method' %}">UK Method</a></li>
+                            <li><a href="{% url 'chn-method' %}">CHN Method</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="" style="font-size: 30px">راهنمای تمرینات</a>
+                        <ul>
+                            <li><a href="{% url 'guide-exercise' %}">راهنمای تمرینات</a></li>
+                            <li><a href="{% url 'warm-up-and-cold-down' %}">راهنمای گرم کردن و سرد کردن</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="{% url 'contact' %}" style="font-size: 30px">تماس با ما</a>
+                    </li>
+                </ul><!-- /.main-nav__navigation-box -->
+            </div><!-- /.main-nav__main-navigation -->
+        </div><!-- /.inner-container -->
+    </div><!-- /.container -->
+</nav><!-- /.main-nav-one -->

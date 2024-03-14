@@ -46,46 +46,7 @@
 </head>
 <body>
 {% include 'topheader.html' %}
-<nav class="main-nav-one stricky main-nav-two">
-    <div class="container">
-        <div class="inner-container">
-            <div class="logo-box">
-                <a href="{% url 'home' %}">
-                    <img src="{% static 'assets/images/logo3.png' %}" alt="" width="180">
-                </a>
-                <a href="#" class="side-menu__toggler"><i class="fa fa-bars"></i></a>
-            </div><!-- /.logo-box -->
-            <div class="main-nav__main-navigation">
-                <ul class="main-nav__navigation-box">
 
-                    <li class="dropdown">
-                        <a href="{% url 'home' %}"><h5>صفحه اصلی</h5></a>
-
-                    <li><a href="{% url 'cart:cart-detail' %}"><h5>سبد خرید</h5></a></li>
-
-                    <li class="dropdown">
-                        <a href=""><h5>متدها</h5></a>
-                        <ul>
-                            <li><a href="{% url 'usa-method' %}">USA Method</a></li>
-                            <li><a href="{% url 'aus-method' %}">AUS Method</a></li>
-                            <li><a href="{% url 'uk-method' %}">UK Method</a></li>
-                            <li><a href="{% url 'chn-method' %}">CHN Method</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href=""><h5>راهنمای تمرینات</h5></a>
-                        <ul>
-                            <li><a href="{% url 'guide-exercise' %}">راهنمای تمرینات</a></li>
-                            <li><a href="{% url 'warm-up-and-cold-down' %}">راهنمای گرم کردن و سرد کردن</a></li>
-                        </ul>
-                    </li>
-                    {#                    <li><a href="{% url 'contact' %}">فروشگاه</a></li>#}
-                    <li><a href="{% url 'contact' %}"><h5>تماس با ما</h5></a></li>
-                </ul><!-- /.main-nav__navigation-box -->
-            </div><!-- /.main-nav__main-navigation -->
-        </div><!-- /.inner-container -->
-    </div><!-- /.container -->
-</nav><!-- /.main-nav-one -->
 {% if messages %}
     {% for message in messages %}
         <div class="alert alert-{{ message.tags }} alert-dismissible text-center" role="alert">
@@ -97,9 +58,13 @@
         </div>
     {% endfor %}
 {% endif %}
+
 {% block content %}
+
 {% endblock content %}
+
 {% include 'footer.html' %}
+
 <!-- Template JS -->
 <script src="{% static 'assets/js/jquery.min.js' %}"></script>
 <script src="{% static 'assets/js/bootstrap.bundle.min.js' %}"></script>
