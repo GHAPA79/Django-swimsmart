@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, HttpResponseRedirect, reverse
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 
@@ -40,6 +40,6 @@ def order_create_view(request):
             request.user.email = order_obj.email
 
             request.session['order_id'] = order_obj.id
-            return redirect('payment:payment_process')
+            return HttpResponseRedirect(reverse('payment:payment_process'))
 
     return render(request, 'order_create.html', context={'form': order_form})
