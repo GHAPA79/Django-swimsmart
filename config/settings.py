@@ -25,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = env("SECRET_KEY")
+SECRET_KEY = env("DJANGO_SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env.bool("DJANGO_DEBUG")
@@ -165,4 +165,4 @@ CRISPY_TEMPLATE_PACK = 'bootstrap5'
 INTERNAL_IPS = ["127.0.0.1", ]
 
 # Zibal merchant id
-ZIBAL_MERCHANT_ID = env("ZIBAL_MERCHANT_ID")
+ZIBAL_MERCHANT_ID = env("DJANGO_ZIBAL_MERCHANT_ID")

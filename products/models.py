@@ -37,6 +37,14 @@ class Product(models.Model):
         return f'Title: {self.title} | Method: {self.category.method_name} | Type_swimmer: {self.category.type_swimmer}'
 
 
+# class PurchaseFile(models.Model):
+#     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='purchase_files')
+#     product = models.ForeignKey(Product, on_delete=models.CASCADE)
+#
+#     datetime_created = models.DateTimeField(auto_now_add=True)
+#     datetime_modified = models.DateTimeField(auto_now=True)
+
+
 class Customer(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.PROTECT)
     phone_number = models.CharField(max_length=12)
