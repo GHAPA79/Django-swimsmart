@@ -11,9 +11,9 @@ class Category(models.Model):
     ]
 
     TYPE_SWIMMERS = [
-        ('F', 'FAST'),
-        ('SE', 'SEMI-ENDURANCE'),
-        ('E', 'ENDURANCE'),
+        ('سرعتی', 'FAST'),
+        ('نیمه استقامتی', 'SEMI-ENDURANCE'),
+        ('استقامتی', 'ENDURANCE'),
     ]
 
     method_name = models.CharField(max_length=255, choices=METHOD_NAMES)
@@ -31,18 +31,18 @@ class Product(models.Model):
     price = models.PositiveIntegerField(default=0)
     duration = models.CharField(max_length=255)
     number_of_sessions = models.PositiveIntegerField(default=0)
-    pdf_file = models.FileField(upload_to='product/product_pdf/')
 
     def __str__(self):
         return f'Title: {self.title} | Method: {self.category.method_name} | Type_swimmer: {self.category.type_swimmer}'
 
 
-# class PurchaseFile(models.Model):
-#     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='purchase_files')
-#     product = models.ForeignKey(Product, on_delete=models.CASCADE)
-#
-#     datetime_created = models.DateTimeField(auto_now_add=True)
-#     datetime_modified = models.DateTimeField(auto_now=True)
+class PurchaseFile(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='purchase_files', blank=True)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    pdf_file = models.FileField(verbose_name='Product PDF File', upload_to='product/product_pdf/')
+
+    datetime_created = models.DateTimeField(auto_now_add=True)
+    datetime_modified = models.DateTimeField(auto_now=True)
 
 
 class Customer(models.Model):

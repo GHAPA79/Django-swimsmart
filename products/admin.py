@@ -14,11 +14,11 @@ class ProductAdmin(admin.ModelAdmin):
     list_per_page = 12
 
 
+@admin.register(models.PurchaseFile)
+class PurchaseFileAdmin(admin.ModelAdmin):
+    list_display = ['user', 'product', 'datetime_modified']
+
+
 @admin.register(models.Customer)
 class CustomerAdmin(admin.ModelAdmin):
     list_display = ['user']
-
-#
-# @admin.register(models.Exercise)
-# class ExerciseAdmin(admin.ModelAdmin):
-#     list_display = ['title', 'price']
