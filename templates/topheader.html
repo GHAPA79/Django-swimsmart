@@ -4,8 +4,11 @@
     <div class="container">
         <div class="topbar-one__left">
             {% if user.is_authenticated %}
-                <h4 style="color:#000000">Welcome {{ user.username }}</h4>&nbsp;&nbsp;
-                <a href="{% url 'account:profile' %}"><h5>پروفایل</h5></a><a href="{% url 'logout' %}"><h5>خروج</h5></a>
+                <form action="{% url 'logout' %}" method="POST">
+                    {% csrf_token %}
+                    <h4 style="color:#000000">Welcome {{ user.username }}</h4> | <button href="{% url 'logout' %}">خروج</button>
+                </form>
+                <a href="{% url 'account:profile' %}"><h5>پروفایل</h5></a>
             {% else %}
                 <a href="{% url 'login' %}"><h5>ورود</h5></a><a href="{% url 'account:signup' %}"><h5>ثبت نام</h5></a>
             {% endif %}

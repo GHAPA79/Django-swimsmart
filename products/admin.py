@@ -16,7 +16,8 @@ class ProductAdmin(admin.ModelAdmin):
 
 @admin.register(models.PurchaseFile)
 class PurchaseFileAdmin(admin.ModelAdmin):
-    list_display = ['user', 'product', 'datetime_modified']
+    list_display = ['product', 'datetime_modified']
+    list_per_page = 12
 
 
 @admin.register(models.Customer)
