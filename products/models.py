@@ -37,6 +37,7 @@ class Product(models.Model):
 
 
 class PurchaseFile(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     pdf_file = models.FileField(verbose_name='Product PDF File', upload_to='product/product_pdf/')
 

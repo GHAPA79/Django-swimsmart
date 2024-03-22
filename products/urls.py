@@ -15,5 +15,5 @@ urlpatterns = [
     path('chn-method-fast/', views.CHNMethodFast.as_view(), name='chn-method-fast'),
     path('chn-method-semi-endu/', views.CHNMethodSemiEndu.as_view(), name='chn-method-semi-endu'),
     path('chn-method-endu/', views.CHNMethodEndu.as_view(), name='chn-method-endu'),
-    path('download/', views.DownloadExercise.as_view(), name='download-exercise'),
+    path('pdf-purchased/', views.pdf_purchased_view, name='pdf-purchased'),
 ]

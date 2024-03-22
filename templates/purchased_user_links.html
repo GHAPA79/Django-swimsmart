@@ -16,7 +16,6 @@
         </div><!-- /.container -->
     </section><!-- /.page-header -->
     <section class="pricing-one">
-        <img src="{% static 'assets/images/shapes/swimmer-contact-1.png' %}" class="contact-one__swimmer" alt="">
         <div class="container">
             <div class="table-responsive">
                 <table>
@@ -29,14 +28,20 @@
                     </tr>
                     </thead>
                     <tbody>
-                    {% for product in products %}
-                        <tr>
-                            <td>{{ product.title }}</td>
-                            <td>{{ product.category.type_swimmer }}</td>
-                            <td>{{ product.category.method_name }}</td>
-                            <td><a href="{{ product.pdf_file.url }}">دانلود فایل</a></td>
-                        </tr>
-                    {% endfor %}
+                    {% if pdfs %}
+                        {% for pdf in pdfs %}
+                            <tr>
+                                <td>{{ pdf.product.title }}</td>
+                                <td>{{ pdf.product.category.type_swimmer }}</td>
+                                <td>{{ pdf.product.category.method_name }}</td>
+                                <td><a target="_blank" href="{{ pdf.pdf_file.url }}">دانلود فایل تمرین</a></td>
+                            </tr>
+                        {% endfor %}
+                    {% else %}
+                        <div class="container mb-5" align="center" style="font-size: 30px">
+                            <p class="font-weight-bold"> ! دوره ای هنوز خریداری نشده است</p>
+                        </div>
+                    {% endif %}
                     </tbody>
                 </table>
             </div><!-- /.table-responsive -->

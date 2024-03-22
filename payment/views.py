@@ -4,6 +4,7 @@ import json
 from django.shortcuts import get_object_or_404, redirect, reverse
 from django.conf import settings
 from django.http import HttpResponse
+from django.contrib import messages
 
 from orders.models import Order
 
@@ -85,7 +86,9 @@ def payment_callback_view(request):
         order.zibal_user_data = data
         order.save()
 
-        return HttpResponse('پرداخت با موفقیت انجام شد')
+        messages.success(request, 'پرداخت با موفقیت انجام شد')
+        messages.info(request, 'لینک دوره در صفحه "پروفایل / لینک دوره های خریداری شده" قابل دسترسی می باشد')
+        return redirect('pdf-purchased')
 
     else:
         error_message = response.json()["message"]

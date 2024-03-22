@@ -1,8 +1,11 @@
 from django.views import generic
+from django.shortcuts import render
+from django.http import HttpResponseForbidden
 
-from .models import Product
+from .models import Product, PurchaseFile
+from orders.models import OrderItem
 from cart.forms import AddToCartProductForm
-from accounts.models import CustomUser
+
 
 
 class USAMethodFast(generic.ListView):
@@ -137,10 +140,15 @@ class CHNMethodEndu(generic.ListView):
         return context
 
 
-class DownloadExercise(generic.ListView):
-    queryset = Product.objects.all()
-    template_name = 'purchased_user_links.html'
-    context_object_name = 'products'
+def pdf_purchased_view(request):
+    order_items = OrderItem.objects.filter(order__user=request.user)
+    product_ids = []
+    for order_item in order_items:
+        product_ids.append(order_item.product.id)
 
-    def get_object(self, queryset=None):
-        return CustomUser.objects.get(pk=self.request.user.pk)
+    pdf_purchased = PurchaseFile.objects.filter(user=request.user, product_id__in=product_ids)
+
+    if not pdf_purchased:
+        HttpResponseForbidden("شما اجازه دسترسی به این صفحه را ندارید")
+
+    return render(request, 'purchased_user_links.html', context={'pdfs': pdf_purchased})
