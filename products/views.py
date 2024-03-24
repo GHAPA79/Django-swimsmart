@@ -140,7 +140,7 @@ class CHNMethodEndu(generic.ListView):
 
 
 def pdf_purchased_view(request):
-    order_items = OrderItem.objects.filter(order__user=request.user)
+    order_items = OrderItem.objects.filter(order__user=request.user, order__is_paid=True)
     product_ids = []
     for order_item in order_items:
         product_ids.append(order_item.product.id)
