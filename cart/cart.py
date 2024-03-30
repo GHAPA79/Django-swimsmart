@@ -21,10 +21,9 @@ class Cart:
 
         if product_id not in self.cart:
             self.cart[product_id] = {'quantity': quantity}
+            messages.success(self.request, 'تمرین مورد نظر با موفقیت به سبد خرید اضافه شد')
         else:
-            self.cart[product_id]['quantity'] += quantity
-
-        messages.success(self.request, 'تمرین مورد نظر با موفقیت به سبد خرید اضافه شد')
+            messages.info(self.request, ' ! این تمرین قبلا در سبد خرید شما وجود دارد')
 
         self.save()
 

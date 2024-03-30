@@ -31,7 +31,9 @@
                                 <form class="mt-5" action="{% url 'cart:cart-add' product.id %}" method="POST">
                                     {% csrf_token %}
                                     {{ add_to_cart_form.as_p }}
-                                    <button class="btn btn-danger" style="font-size: 23px" type="submit">اضافه کردن به سبد خرید</button>
+                                    <button class="btn btn-danger" style="font-size: 23px" type="submit">اضافه کردن
+                                        به سبد خرید
+                                    </button>
                                 </form>
                             </div><!-- /.blog-one__content -->
                         </div><!-- /.blog-one__single -->
