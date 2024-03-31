@@ -1,7 +1,7 @@
 import requests
 import json
 
-from django.shortcuts import get_object_or_404, redirect, reverse
+from django.shortcuts import get_object_or_404, redirect, reverse, render
 from django.conf import settings
 from django.http import HttpResponse
 from django.contrib import messages
@@ -45,7 +45,7 @@ def payment_process_view(request):
     if result == 100:
         return redirect(f'https://gateway.zibal.ir/start/{trackId}')
     else:
-        return HttpResponse('خطا از طرف درگاه پرداخت زیبال!')
+        return redirect('payment:unsuccessful_payment_from_gateway')
 
 
 def payment_callback_view(request):
@@ -91,5 +91,12 @@ def payment_callback_view(request):
         return redirect('pdf-purchased')
 
     else:
-        error_message = response.json()["message"]
-        return HttpResponse(f' تراکنش ناموفق بود {error_message}')
+        return redirect('payment:unsuccessful_payment')
+
+
+def unsuccessful_payment_view(request):
+    return render(request, 'unsuccessful_payment.html')
+
+
+def unsuccessful_payment_from_gateway_view(request):
+    return render(request, 'unsuccessful_payment_from_gateway.html')
