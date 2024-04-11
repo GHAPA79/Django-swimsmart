@@ -3,7 +3,6 @@ import json
 
 from django.shortcuts import get_object_or_404, redirect, reverse, render
 from django.conf import settings
-from django.http import HttpResponse
 from django.contrib import messages
 
 from orders.models import Order
@@ -22,7 +21,7 @@ def payment_process_view(request):
     zibal_request_url = 'https://gateway.zibal.ir/v1/request'
 
     request_data = {
-        "merchant": "zibal",
+        "merchant": settings.ZIBAL_MERCHANT_ID,
         "amount": rial_total_price,
         "callbackUrl": request.build_absolute_uri(reverse('payment:payment_callback')),
         "description": f'#{order.id}: {order.first_name} {order.last_name}',
@@ -61,7 +60,7 @@ def payment_callback_view(request):
 
     # Verifying payment status
     request_data = {
-        "merchant": "zibal",
+        "merchant": settings.ZIBAL_MERCHANT_ID,
         "trackId": payment_trackId,
     }
 

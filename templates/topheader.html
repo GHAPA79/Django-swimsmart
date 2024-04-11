@@ -1,26 +1,5 @@
 {% load static %}
 
-<div class="topbar-one">
-    <div class="container">
-        <div class="topbar-one__left">
-            {% if user.is_authenticated %}
-                <form action="{% url 'logout' %}" method="POST">
-                    {% csrf_token %}
-                    <h4 style="color:#000000">Welcome {{ user.username }}</h4>
-                    <button class="btn btn-danger" href="{% url 'logout' %}">خروج</button>
-                    <a style="font-size: 18px" class="btn btn-success" href="{% url 'account:profile' %}">حساب
-                        کاربری</a>
-                </form>
-            {% else %}
-                <a href="{% url 'login' %}"><h5>ورود</h5></a><a href="{% url 'account:signup' %}"><h5>ثبت نام</h5></a>
-            {% endif %}
-        </div><!-- /.topbar-one__left -->
-        <div class="topbar-one__social">
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fa fa-envelope"></i></a>
-        </div><!-- /.topbar-one__social -->
-    </div><!-- /.container -->
-</div><!-- /.topbar-one -->
 <nav class="main-nav-one stricky main-nav-two">
     <div class="container">
         <div class="inner-container">
@@ -33,11 +12,11 @@
             <div class="main-nav__main-navigation">
                 <ul class="main-nav__navigation-box">
                     <li>
-                        <a href="{% url 'home' %}" style="font-size: 30px">صفحه اصلی</a>
+                        <a href="{% url 'home' %}" style="font-size: 25px">صفحه اصلی</a>
                     </li>
-                    <li><a href="{% url 'cart:cart-detail' %}" style="font-size: 30px">سبد خرید</a></li>
+                    <li><a href="{% url 'cart:cart-detail' %}" style="font-size: 25px">سبد خرید</a></li>
                     <li class="dropdown">
-                        <a href="" style="font-size: 30px">متدها</a>
+                        <a href="" style="font-size: 25px">متدها</a>
                         <ul>
                             <li><a href="{% url 'usa-method' %}">USA Method</a></li>
                             <li><a href="{% url 'aus-method' %}">AUS Method</a></li>
@@ -46,15 +25,24 @@
                         </ul>
                     </li>
                     <li class="dropdown">
-                        <a href="" style="font-size: 30px">راهنمای تمرینات</a>
+                        <a href="" style="font-size: 25px">راهنمای تمرینات</a>
                         <ul>
                             <li><a href="{% url 'guide-exercise' %}">راهنمای تمرینات</a></li>
                             <li><a href="{% url 'warm-up-and-cold-down' %}">راهنمای گرم کردن و سرد کردن</a></li>
                         </ul>
                     </li>
                     <li>
-                        <a href="{% url 'contact' %}" style="font-size: 30px">تماس با ما</a>
+                        <a href="{% url 'contact' %}" style="font-size: 25px">تماس با ما</a>
                     </li>
+                    {% if user.is_authenticated %}
+                        <li>
+                            <a href="{% url 'account:profile' %}" style="font-size: 25px">پروفایل</a>
+                        </li>
+                    {% else %}
+                        <li>
+                            <a href="{% url 'login' %}" style="font-size: 25px">ورود</a>
+                        </li>
+                    {% endif %}
                 </ul><!-- /.main-nav__navigation-box -->
             </div><!-- /.main-nav__main-navigation -->
         </div><!-- /.inner-container -->
@@ -74,11 +62,13 @@
             <nav class="mobile-nav__container">
                 <!-- content is loading via js -->
             </nav>
-            <p class="side-menu__block__copy">(c) <a href="{% url 'home' %}"> swimsmart</a><br>تمامی حقوق این سایت متعلق به
+            <p class="side-menu__block__copy">(c) <a href="{% url 'home' %}"> swimsmart</a><br>تمامی حقوق این سایت متعلق
+                به
                 سویم اسمارت می باشد</p>
             <div class="side-menu__social">
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fa fa-envelope"></i></a>
+                <a target="_blank" href="https://www.instagram.com/swimsmart.ir?igsh=ZDJxYmtpbmVja3Vo/"><i
+                        class="fab fa-instagram"></i></a>
+                <a target="_blank" href="#"><i class="fa fa-envelope"></i></a>
             </div>
         </div><!-- /.side-menu__block-inner -->
     </div><!-- /.side-menu__block -->

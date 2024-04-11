@@ -24,12 +24,20 @@
                     {% csrf_token %}
                     {{ form|crispy }}
                     <div style="height: 50px" class="d-grid gap-3 mb-3">
-                        <button class="btn btn-success font-weight-bold" type="submit">ویرایش اطلاعات کاربری</button>
+                        <button class="btn btn-success" style="font-size: 18px" type="submit">ویرایش اطلاعات کاربری</button>
                     </div>
                 </form>
                 <div style="height: 50px" class="d-grid gap-3">
-                    <a href="{% url 'pdf-purchased' %}" class="btn btn-warning font-weight-bold" type="button">لینک دوره های خریداری شده</a>
-                    <a href="{% url 'password_change' %}" class="btn btn-danger font-weight-bold" type="button">تغییر رمز عبور</a>
+                    <a href="{% url 'pdf-purchased' %}" class="btn btn-info" style="font-size: 18px" type="button">لینک دوره
+                        های خریداری شده</a>
+                    <a href="{% url 'password_change' %}" class="btn btn-warning" style="font-size: 18px" type="button">تغییر
+                        رمز عبور</a>
+                    <form action="{% url 'logout' %}" method="POST">
+                        {% csrf_token %}
+                        <div class="d-grid gap-3">
+                            <button style="font-size: 18px" class="btn btn-danger mb-5" href="{% url 'logout' %}">خروج از حساب کاربری</button>
+                        </div>
+                    </form>
                 </div>
             </div><!-- /.row -->
         </div><!-- /.container -->
