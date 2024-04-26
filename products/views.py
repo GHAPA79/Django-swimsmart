@@ -145,7 +145,7 @@ def pdf_purchased_view(request):
     for order_item in order_items:
         product_ids.append(order_item.product.id)
 
-    pdf_purchased = PurchaseFile.objects.filter(user=request.user, product_id__in=product_ids)
+    pdf_purchased = PurchaseFile.objects.filter(product_id__in=product_ids)
 
     if not pdf_purchased:
         HttpResponseForbidden("شما اجازه دسترسی به این صفحه را ندارید")
