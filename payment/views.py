@@ -81,7 +81,7 @@ def payment_callback_view(request):
 
     if payment_message == "success":
         order.is_paid = True
-        # order.zibal_ref_id = data["refNumber"]
+        order.zibal_ref_id = data["refNumber"]
         order.zibal_user_data = data
         order.save()
 

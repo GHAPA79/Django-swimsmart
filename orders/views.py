@@ -38,6 +38,7 @@ def order_create_view(request):
             request.user.first_name = order_obj.first_name
             request.user.last_name = order_obj.last_name
             request.user.email = order_obj.email
+            request.user.save()
 
             request.session['order_id'] = order_obj.id
             return HttpResponseRedirect(reverse('payment:payment_process'))
