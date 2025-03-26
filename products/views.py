@@ -137,6 +137,28 @@ class CHNMethodEndu(generic.ListView):
         context = super().get_context_data(**kwargs)
         context['add_to_cart_form'] = AddToCartProductForm
         return context
+    
+
+class GymWoman(generic.ListView):
+    queryset = Product.objects.filter(category_id=13)
+    template_name = 'gym-woman.html'
+    context_object_name = 'products'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['add_to_cart_form'] = AddToCartProductForm
+        return context
+    
+
+class GymMen(generic.ListView):
+    queryset = Product.objects.filter(category_id=14)
+    template_name = 'gym-man.html'
+    context_object_name = 'products'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['add_to_cart_form'] = AddToCartProductForm
+        return context
 
 
 def pdf_purchased_view(request):

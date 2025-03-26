@@ -16,4 +16,6 @@ urlpatterns = [
     path('chn-method-semi-endu/', views.CHNMethodSemiEndu.as_view(), name='chn-method-semi-endu'),
     path('chn-method-endu/', views.CHNMethodEndu.as_view(), name='chn-method-endu'),
     path('pdf-purchased/', views.pdf_purchased_view, name='pdf-purchased'),
+    path('gym-woman/', views.GymWoman.as_view(), name='gym-woman'),
+    path('gym-men/', views.GymMen.as_view(), name='gym-men'),
 ]
