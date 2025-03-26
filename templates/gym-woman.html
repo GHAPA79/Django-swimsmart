@@ -1,0 +1,43 @@
+{% extends '_base.html' %}
+{% load static %}
+{% load persian_translation_tags %}
+{% load humanize %}
+
+{% block page_title %}فصل های تمرینات سرعتی{% endblock page_title %}
+
+{% block content %}
+    <section class="page-header">
+        <!-- /.page-header__bg -->
+        <div class="container">
+            <h2 class="page-header__title">تمرین بدنسازی اختصاصی بانوان</h2><!-- /.page-header__title -->
+        </div><!-- /.container -->
+    </section><!-- /.page-header -->
+
+    <section class="blog-one">
+        <div class="container">
+            <div class="row">
+                {% for product in products %}
+                    <div class="col-lg-3 col-md-5 shadow">
+                        <div class="blog-one__single">
+                            <div class="blog-one__content">
+                                <h3>{{ product.title }}</h3>
+                                <span class="money">{{ product.price|intcomma|translate_number }} تومان </span>
+                                <div class="blog-one__meta">
+                                    <i> مدت زمان: {{ product.duration }}</i>
+                                    <i>تعداد جلسات: {{ product.number_of_sessions }}</i>
+                                </div><!-- /.blog-one__meta -->
+                                <form class="mt-5" action="{% url 'cart:cart-add' product.id %}" method="POST">
+                                    {% csrf_token %}
+                                    {{ add_to_cart_form.as_p }}
+                                    <button class="btn btn-danger" style="font-size: 23px" type="submit">اضافه کردن به
+                                        سبد خرید
+                                    </button>
+                                </form>
+                            </div><!-- /.blog-one__content -->
+                        </div><!-- /.blog-one__single -->
+                    </div><!-- /.col-lg-4 col-md-6 -->
+                {% endfor %}
+            </div><!-- /.row -->
+        </div><!-- /.container -->
+    </section><!-- /.blog-one -->
+{% endblock content %}

@@ -9,6 +9,10 @@ class ContactView(TemplateView):
     template_name = 'contact.html'
 
 
+class GymView(TemplateView):
+    template_name = 'gym.html'
+
+
 class USAMethod(TemplateView):
     template_name = 'usa.html'
 

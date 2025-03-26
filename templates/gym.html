@@ -1,0 +1,53 @@
+{% extends '_base.html' %}
+{% load static %}
+
+{% block page_title %}نوع تمرین{% endblock page_title %}
+
+{% block content %}
+    <section class="page-header">
+        <div class="container">
+            <h2 class="page-header__title">انواع تمرینات | بدن سازی تخصصی شنا</h2><!-- /.page-header__title -->
+        </div><!-- /.container -->
+    </section><!-- /.page-header -->
+
+    <section class="course-one">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="course-one__single">
+                        <div class="course-one__image">
+                            <a href="{% url 'gym-woman' %}">
+                                <div class="course-one__image-inner">
+                                    <img src="{% static 'assets/images/courses/gym-w.jpg' %}" alt="">
+                                </div><!-- /.course-one__image-inner -->
+                            </a>
+                        </div><!-- /.course-one__image -->
+                        <div class="course-one__content hvr-sweep-to-bottom">
+                            <h3><a href="{% url 'gym-woman' %}">بدنسازی تخصصی بانوان</a></h3>
+                            <p>این تمرینات مختص بانوان می باشد و همه شناگران سرعتی و نیمه استقامتی و استقامتی می توانند
+                                آن را انجام دهند</p>
+                        </div><!-- /.course-one__content -->
+                        <a href="{% url 'gym-woman' %}" class="course-one__book-link">انتخاب</a>
+                    </div><!-- /.course-one__single -->
+                </div><!-- /.col-lg-4 col-md-6 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="course-one__single">
+                        <div class="course-one__image">
+                            <a href="{% url 'gym-men' %}">
+                                <div class="course-one__image-inner">
+                                    <img src="{% static 'assets/images/courses/gym-m.jpg' %}" alt="">
+                                </div><!-- /.course-one__image-inner -->
+                            </a>
+                        </div><!-- /.course-one__image -->
+                        <div class="course-one__content hvr-sweep-to-bottom">
+                            <h3><a href="{% url 'gym-men' %}">بدنسازی تخصصی آقایان</a></h3>
+                            <p>این تمرینات مختص آقایان می باشد و همه شناگران سرعتی و نیمه استقامتی و استقامتی می توانند
+                                آن را انجام دهند</p>
+                        </div><!-- /.course-one__content -->
+                        <a href="{% url 'gym-men' %}" class="course-one__book-link">انتخاب</a>
+                    </div><!-- /.course-one__single -->
+                </div><!-- /.col-lg-4 col-md-6 -->
+            </div><!-- /.row -->
+        </div><!-- /.container -->
+    </section><!-- /.course-one -->
+{% endblock %}

@@ -28,7 +28,8 @@ services:
     build: .
     command: python /code/manage.py runserver 0.0.0.0:8000
     volumes:
-      - .:/code:ro
+      - .:/code
+      - media_data:/code/media
     ports:
       - '8000:8000'
     depends_on:
@@ -53,6 +54,7 @@ services:
 
 volumes:
   db_data:
+  media_data:
 
 networks:
   app_network:

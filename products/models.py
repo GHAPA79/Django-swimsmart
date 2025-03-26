@@ -4,6 +4,7 @@ from django.conf import settings
 
 class Category(models.Model):
     METHOD_NAMES = [
+        ('GYM', 'SWIM BODYBUILDING'),
         ('US', 'UNITED STATE OF AMERICA'),
         ('UK', 'UNITED KINGDOM'),
         ('AUS', 'AUSTRALIA'),
@@ -11,6 +12,8 @@ class Category(models.Model):
     ]
 
     TYPE_SWIMMERS = [
+        ('بانوان', 'FEMALE'),
+        ('آقایان', 'MALE'),
         ('سرعتی', 'FAST'),
         ('نیمه استقامتی', 'SEMI-ENDURANCE'),
         ('استقامتی', 'ENDURANCE'),
